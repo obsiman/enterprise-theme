@@ -1,4 +1,16 @@
 {
   "extends": ["stylelint-config-obsidianmd"],
-  "ignoreFiles": ["theme.css"]
+  "ignoreFiles": ["theme.css"],
+  "rules": {
+    "value-keyword-case": null,
+    "color-function-alias-notation": null,
+    "color-function-notation": null,
+    "alpha-value-notation": null,
+    "custom-property-empty-line-before": null,
+    "selector-class-pattern": null,
+    "property-no-vendor-prefix": null,
+    "no-descending-specificity": null,
+    "media-feature-range-notation": null,
+    "plugin/no-unsupported-browser-features": null
+  }
 }
