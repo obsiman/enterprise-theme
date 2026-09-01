@@ -1,0 +1,138 @@
+body {
+  /* Primitive typography roles. Style Settings may override these exact variables. */
+  --enterprise-font-display: "Bricolage Grotesque", "Instrument Sans", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --enterprise-font-body: "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --enterprise-font-mono: "Spline Sans Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --enterprise-font-hand: "Caveat", "Segoe Print", "Bradley Hand", cursive;
+
+  /* Primitive scale. */
+  --enterprise-body-size: 17px;
+  --enterprise-body-line-height: 1.68;
+  --enterprise-reading-width: 792px;
+  --enterprise-bold-weight: 640;
+  --enterprise-title-size: 42px;
+  --enterprise-title-weight: 640;
+  --enterprise-title-tracking: -0.015em;
+  --enterprise-title-spacing: 22px;
+  --enterprise-title-stroke-width: 190px;
+  --enterprise-title-stroke-height: 7px;
+  --enterprise-title-stroke-gap: 8px;
+  --enterprise-title-stroke-opacity: 0.92;
+  --enterprise-h2-rule-thickness: 1px;
+  --enterprise-hand-size: 23px;
+  --enterprise-hand-weight: 500;
+  --enterprise-link-underline-thickness: 1.5px;
+  --enterprise-highlight-opacity: 0.24;
+  --enterprise-content-padding: 32px;
+  --enterprise-heading-spacing: 1.55em;
+  --enterprise-paragraph-spacing: 1.05em;
+  --enterprise-divider-width: 1px;
+  --enterprise-radius-style: 10px;
+  --enterprise-callout-border-width: 1px;
+  --enterprise-table-row-height: 36px;
+  --enterprise-nav-item-height: 30px;
+  --enterprise-interface-font-size: 13px;
+  --enterprise-interface-density: 1;
+  --enterprise-motion-duration: 140ms;
+  --enterprise-focus-ring-width: 2px;
+
+  /* Fixed physical tokens. */
+  --enterprise-radius-micro: 2px;
+  --enterprise-radius-card: 16px;
+  --enterprise-radius-floating: 20px;
+  --enterprise-radius-pill: 999px;
+  --enterprise-space-1: 4px;
+  --enterprise-space-2: 8px;
+  --enterprise-space-3: 12px;
+  --enterprise-space-4: 16px;
+  --enterprise-space-5: 24px;
+  --enterprise-space-6: 32px;
+
+  /* Non-user semantic support colors live here so downstream modules contain no raw colors. */
+  --enterprise-dark-surface-primary: #090a0c;
+  --enterprise-dark-surface-secondary: #0f1113;
+  --enterprise-dark-surface-tertiary: #16181a;
+  --enterprise-dark-surface-deep: #07080b;
+  --enterprise-dark-surface-overlay: #1b1c1f;
+  --enterprise-dark-text-normal: #f6f3ec;
+  --enterprise-dark-text-muted: #c9c4b8;
+  --enterprise-dark-text-faint: #8e897d;
+  --enterprise-dark-text-heading-secondary: #ddd8cc;
+  --enterprise-dark-accent: #ff5a2d;
+  --enterprise-dark-accent-hover: #ff7248;
+  --enterprise-dark-accent-soft: rgba(255, 90, 45, 0.11);
+  --enterprise-dark-accent-strong: rgba(255, 90, 45, 0.24);
+  --enterprise-dark-hairline: #323438;
+  --enterprise-dark-control-border: #7b7d80;
+  --enterprise-dark-hover: rgba(246, 243, 236, 0.08);
+  --enterprise-dark-shadow: rgba(0, 0, 0, 0.45);
+  --enterprise-dark-success: #7d9a7f;
+  --enterprise-dark-warning: #c2a35c;
+  --enterprise-dark-danger: #e36350;
+
+  --enterprise-light-surface-primary: #f6f3ec;
+  --enterprise-light-surface-secondary: #fffdf7;
+  --enterprise-light-surface-tertiary: #ede9df;
+  --enterprise-light-surface-deep: #f1ede2;
+  --enterprise-light-surface-overlay: #fffdf7;
+  --enterprise-light-text-normal: #171a20;
+  --enterprise-light-text-muted: #4d4a42;
+  --enterprise-light-text-faint: #5a574e;
+  --enterprise-light-text-heading-secondary: #2e2c26;
+  --enterprise-light-accent: #d43f16;
+  --enterprise-light-accent-hover: #a73514;
+  --enterprise-light-accent-soft: rgba(212, 63, 22, 0.08);
+  --enterprise-light-accent-strong: rgba(212, 63, 22, 0.22);
+  --enterprise-light-hairline: #d8d1c4;
+  --enterprise-light-control-border: #777166;
+  --enterprise-light-hover: rgba(23, 26, 32, 0.07);
+  --enterprise-light-shadow: rgba(23, 26, 32, 0.18);
+  --enterprise-light-success: #5e7a60;
+  --enterprise-light-warning: #866c32;
+  --enterprise-light-danger: #b33a2b;
+
+  --enterprise-selection: rgba(255, 90, 45, 0.24);
+  --enterprise-knob: #f6f3ec;
+}
+
+.theme-dark {
+  --enterprise-user-surface-primary: var(--enterprise-dark-surface-primary);
+  --enterprise-user-surface-secondary: var(--enterprise-dark-surface-secondary);
+  --enterprise-user-surface-tertiary: var(--enterprise-dark-surface-tertiary);
+  --enterprise-user-text-normal: var(--enterprise-dark-text-normal);
+  --enterprise-user-text-muted: var(--enterprise-dark-text-muted);
+  --enterprise-user-text-faint: var(--enterprise-dark-text-faint);
+  --enterprise-user-accent: var(--enterprise-dark-accent);
+  --enterprise-user-accent-hover: var(--enterprise-dark-accent-hover);
+  --enterprise-user-success: var(--enterprise-dark-success);
+  --enterprise-user-warning: var(--enterprise-dark-warning);
+  --enterprise-user-danger: var(--enterprise-dark-danger);
+  --enterprise-title-decoration-color: var(--enterprise-dark-accent);
+  --enterprise-h2-rule-color: var(--enterprise-dark-hairline);
+  --enterprise-hand-color: var(--enterprise-dark-accent);
+  --enterprise-link-color: var(--enterprise-dark-accent);
+  --enterprise-link-hover-color: var(--enterprise-dark-accent-hover);
+  --enterprise-border-color: var(--enterprise-dark-hairline);
+  --enterprise-control-border-color: var(--enterprise-dark-control-border);
+}
+
+.theme-light {
+  --enterprise-user-surface-primary: var(--enterprise-light-surface-primary);
+  --enterprise-user-surface-secondary: var(--enterprise-light-surface-secondary);
+  --enterprise-user-surface-tertiary: var(--enterprise-light-surface-tertiary);
+  --enterprise-user-text-normal: var(--enterprise-light-text-normal);
+  --enterprise-user-text-muted: var(--enterprise-light-text-muted);
+  --enterprise-user-text-faint: var(--enterprise-light-text-faint);
+  --enterprise-user-accent: var(--enterprise-light-accent);
+  --enterprise-user-accent-hover: var(--enterprise-light-accent-hover);
+  --enterprise-user-success: var(--enterprise-light-success);
+  --enterprise-user-warning: var(--enterprise-light-warning);
+  --enterprise-user-danger: var(--enterprise-light-danger);
+  --enterprise-title-decoration-color: var(--enterprise-light-accent);
+  --enterprise-h2-rule-color: var(--enterprise-light-hairline);
+  --enterprise-hand-color: var(--enterprise-light-accent);
+  --enterprise-link-color: var(--enterprise-light-accent);
+  --enterprise-link-hover-color: var(--enterprise-light-accent-hover);
+  --enterprise-border-color: var(--enterprise-light-hairline);
+  --enterprise-control-border-color: var(--enterprise-light-control-border);
+}
