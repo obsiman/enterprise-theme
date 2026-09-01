@@ -1,0 +1,98 @@
+.workspace {
+  background: var(--enterprise-surface-deep);
+}
+
+.workspace-leaf-content {
+  background: var(--enterprise-surface-primary);
+}
+
+.workspace-tab-header {
+  font-size: var(--enterprise-interface-font-size);
+}
+
+.nav-file-title,
+.nav-folder-title {
+  min-height: calc(var(--enterprise-nav-item-height) * var(--enterprise-interface-density));
+  border-radius: var(--enterprise-radius-style);
+  font-size: var(--enterprise-interface-font-size);
+}
+
+.nav-folder-title {
+  font-weight: var(--enterprise-bold-weight);
+}
+
+.nav-file-title.is-active {
+  box-shadow: inset var(--enterprise-divider-width) 0 0 var(--enterprise-accent);
+}
+
+.workspace-tab-header.is-active::before,
+.workspace-tab-header.is-active::after {
+  display: none;
+}
+
+.workspace-tab-header.is-active {
+  box-shadow: inset 0 calc(-1 * var(--enterprise-divider-width)) 0 var(--enterprise-accent);
+}
+
+.status-bar {
+  border-top: var(--enterprise-divider-width) solid var(--enterprise-hairline);
+  font-family: var(--enterprise-font-hand);
+  font-size: calc(var(--enterprise-interface-font-size) * 0.92);
+}
+
+body.enterprise-disable-handwriting .status-bar,
+body.enterprise-disable-handwriting .tooltip {
+  font-family: var(--enterprise-font-body);
+}
+
+.workspace-ribbon {
+  border-inline-end: var(--enterprise-divider-width) solid var(--enterprise-hairline);
+}
+
+body.enterprise-hide-ribbon .workspace-ribbon.mod-left {
+  display: none;
+}
+
+body.enterprise-compact-interface {
+  --enterprise-interface-density: 0.88;
+  --enterprise-content-padding: var(--enterprise-space-5);
+}
+
+body.enterprise-compact-interface .workspace-tab-header-container,
+body.enterprise-compact-interface .view-header {
+  min-height: calc(var(--enterprise-nav-item-height) * var(--enterprise-interface-density));
+}
+
+.view-header,
+.workspace-tab-header-container,
+.workspace-sidedock-vault-profile {
+  border-color: var(--enterprise-hairline);
+}
+
+.titlebar,
+.status-bar,
+.workspace-ribbon,
+.workspace-tab-header-container {
+  background: var(--enterprise-surface-deep);
+}
+
+.menu,
+.suggestion-container {
+  border: var(--enterprise-divider-width) solid var(--enterprise-hairline);
+  background: var(--enterprise-surface-overlay);
+  box-shadow: var(--shadow-l);
+}
+
+.menu-item {
+  border-radius: var(--enterprise-radius-style);
+}
+
+.menu-item:hover,
+.suggestion-item.is-selected {
+  background: var(--enterprise-hover);
+}
+
+.tree-item-self.mod-active {
+  color: var(--enterprise-text-normal);
+  background: var(--enterprise-accent-soft);
+}
