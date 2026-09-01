@@ -1,0 +1,115 @@
+.markdown-rendered a,
+.cm-s-obsidian span.cm-link,
+.cm-s-obsidian span.cm-hmd-internal-link,
+.cm-s-obsidian span.cm-url {
+  color: var(--enterprise-link-color);
+  text-decoration-color: transparent;
+  text-decoration-thickness: var(--enterprise-link-underline-thickness);
+  text-underline-offset: 0.2em;
+  transition:
+    color var(--enterprise-motion-duration) ease,
+    text-decoration-color var(--enterprise-motion-duration) ease;
+}
+
+.markdown-rendered a:hover,
+.cm-s-obsidian span.cm-link:hover,
+.cm-s-obsidian span.cm-hmd-internal-link:hover,
+.cm-s-obsidian span.cm-url:hover {
+  color: var(--enterprise-link-hover-color);
+  text-decoration: underline;
+  text-decoration-color: var(--enterprise-link-hover-color);
+}
+
+.markdown-rendered mark,
+.cm-highlight {
+  color: inherit;
+  background: var(--enterprise-highlight);
+  border-radius: var(--enterprise-radius-micro);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.markdown-rendered blockquote,
+.cm-s-obsidian .HyperMD-quote {
+  font-family: var(--enterprise-font-hand);
+  font-size: var(--enterprise-hand-size);
+  font-weight: var(--enterprise-hand-weight);
+  line-height: 1.35;
+  color: var(--enterprise-text-muted);
+}
+
+.markdown-rendered blockquote {
+  margin-inline: 0;
+  padding: var(--enterprise-space-1) 0 var(--enterprise-space-1) var(--enterprise-space-4);
+  border-inline-start: var(--enterprise-divider-width) solid var(--enterprise-control-border);
+}
+
+.callout[data-callout="note"] .callout-content,
+.callout[data-callout="tip"] .callout-content,
+.callout[data-callout="quote"] .callout-content {
+  font-family: var(--enterprise-font-hand);
+  font-size: calc(var(--enterprise-hand-size) * 0.96);
+  font-weight: var(--enterprise-hand-weight);
+  line-height: 1.4;
+}
+
+.cm-s-obsidian span.cm-comment {
+  font-family: var(--enterprise-font-hand);
+  font-size: calc(var(--enterprise-hand-size) * 0.9);
+  font-weight: var(--enterprise-hand-weight);
+  color: var(--enterprise-text-faint);
+}
+
+.tag,
+.cm-hashtag {
+  font-family: var(--enterprise-font-hand);
+  font-size: calc(var(--enterprise-hand-size) * 0.72);
+  font-weight: var(--enterprise-hand-weight);
+  color: var(--enterprise-hand-color);
+}
+
+body.enterprise-disable-handwriting .markdown-rendered blockquote,
+body.enterprise-disable-handwriting .cm-s-obsidian .HyperMD-quote,
+body.enterprise-disable-handwriting .callout[data-callout="note"] .callout-content,
+body.enterprise-disable-handwriting .callout[data-callout="tip"] .callout-content,
+body.enterprise-disable-handwriting .callout[data-callout="quote"] .callout-content,
+body.enterprise-disable-handwriting .cm-s-obsidian span.cm-comment,
+body.enterprise-disable-handwriting .tag,
+body.enterprise-disable-handwriting .cm-hashtag {
+  font-family: var(--enterprise-font-body);
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.markdown-rendered code,
+.cm-inline-code {
+  border: var(--enterprise-divider-width) solid var(--enterprise-hairline);
+  border-radius: var(--enterprise-radius-micro);
+  font-family: var(--enterprise-font-mono);
+}
+
+.markdown-rendered pre {
+  border: var(--enterprise-divider-width) solid var(--enterprise-hairline);
+  border-radius: var(--enterprise-radius-style);
+}
+
+.markdown-rendered hr {
+  margin-block: var(--enterprise-space-5);
+  border: 0;
+  border-top: var(--enterprise-divider-width) solid var(--enterprise-hairline);
+}
+
+.markdown-embed,
+.file-embed {
+  border-inline-start: var(--enterprise-divider-width) solid var(--enterprise-control-border);
+  padding-inline-start: var(--enterprise-space-4);
+}
+
+.markdown-rendered ul,
+.markdown-rendered ol {
+  padding-inline-start: calc(var(--enterprise-space-5) + var(--enterprise-space-1));
+}
+
+.markdown-rendered li::marker {
+  color: var(--enterprise-text-faint);
+}
