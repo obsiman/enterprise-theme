@@ -1,0 +1,181 @@
+.theme-dark,
+.theme-light {
+  --background-primary: var(--enterprise-surface-primary);
+  --background-primary-alt: var(--enterprise-surface-secondary);
+  --background-secondary: var(--enterprise-surface-deep);
+  --background-secondary-alt: var(--enterprise-surface-tertiary);
+  --background-modifier-hover: var(--enterprise-hover);
+  --background-modifier-active-hover: var(--enterprise-accent-soft);
+  --background-modifier-border: var(--enterprise-hairline);
+  --background-modifier-border-hover: var(--enterprise-control-border);
+  --background-modifier-border-focus: var(--enterprise-accent);
+  --background-modifier-form-field: var(--enterprise-surface-secondary);
+  --background-modifier-message: var(--enterprise-surface-overlay);
+
+  --text-normal: var(--enterprise-text-normal);
+  --text-muted: var(--enterprise-text-muted);
+  --text-faint: var(--enterprise-text-faint);
+  --text-accent: var(--enterprise-link-color);
+  --text-accent-hover: var(--enterprise-link-hover-color);
+  --text-error: var(--enterprise-danger);
+  --text-warning: var(--enterprise-warning);
+  --text-success: var(--enterprise-success);
+  --text-selection: var(--enterprise-highlight);
+  --text-highlight-bg: var(--enterprise-highlight);
+
+  --interactive-normal: var(--enterprise-surface-tertiary);
+  --interactive-hover: var(--enterprise-surface-overlay);
+  --interactive-accent: var(--enterprise-accent);
+  --interactive-accent-hover: var(--enterprise-accent-hover);
+
+  --font-interface-theme: var(--enterprise-font-body);
+  --font-text-theme: var(--enterprise-font-body);
+  --font-monospace-theme: var(--enterprise-font-mono);
+  --font-text-size: var(--enterprise-body-size);
+  --line-height-normal: var(--enterprise-body-line-height);
+  --bold-weight: var(--enterprise-bold-weight);
+  --bold-color: var(--enterprise-text-normal);
+  --file-line-width: var(--enterprise-reading-width);
+
+  --heading-spacing: var(--enterprise-heading-spacing);
+  --h1-font: var(--enterprise-font-display);
+  --h2-font: var(--enterprise-font-display);
+  --h3-font: var(--enterprise-font-display);
+  --h4-font: var(--enterprise-font-display);
+  --h5-font: var(--enterprise-font-display);
+  --h6-font: var(--enterprise-font-mono);
+  --h1-weight: var(--enterprise-bold-weight);
+  --h2-weight: var(--enterprise-bold-weight);
+  --h3-weight: var(--enterprise-bold-weight);
+  --h4-weight: var(--enterprise-bold-weight);
+  --h5-weight: var(--enterprise-bold-weight);
+  --h6-weight: var(--enterprise-hand-weight);
+  --h1-color: var(--enterprise-text-normal);
+  --h2-color: var(--enterprise-text-normal);
+  --h3-color: var(--enterprise-text-normal);
+  --h4-color: var(--enterprise-text-heading-secondary);
+  --h5-color: var(--enterprise-text-heading-secondary);
+  --h6-color: var(--enterprise-text-faint);
+
+  --inline-title-font: var(--enterprise-font-display);
+  --inline-title-size: var(--enterprise-title-size);
+  --inline-title-weight: var(--enterprise-title-weight);
+  --inline-title-color: var(--enterprise-text-normal);
+
+  --link-color: var(--enterprise-link-color);
+  --link-color-hover: var(--enterprise-link-hover-color);
+  --link-external-color: var(--enterprise-link-color);
+  --link-external-color-hover: var(--enterprise-link-hover-color);
+  --link-unresolved-color: var(--enterprise-text-faint);
+
+  --blockquote-border-color: var(--enterprise-control-border);
+  --blockquote-color: var(--enterprise-text-muted);
+  --code-background: var(--enterprise-surface-secondary);
+  --code-normal: var(--enterprise-text-muted);
+  --code-comment: var(--enterprise-text-faint);
+  --code-function: var(--enterprise-link-color);
+  --code-important: var(--enterprise-warning);
+  --code-keyword: var(--enterprise-link-hover-color);
+  --code-property: var(--enterprise-text-normal);
+  --code-punctuation: var(--enterprise-text-faint);
+  --code-string: var(--enterprise-success);
+  --code-tag: var(--enterprise-danger);
+  --code-value: var(--enterprise-warning);
+
+  --table-background: transparent;
+  --table-border-color: var(--enterprise-hairline);
+  --table-header-background: var(--enterprise-surface-secondary);
+  --table-header-background-hover: var(--enterprise-surface-tertiary);
+  --table-row-background-hover: var(--enterprise-hover);
+  --table-text-color: var(--enterprise-text-normal);
+
+  --checkbox-color: var(--enterprise-accent);
+  --checkbox-color-hover: var(--enterprise-accent-hover);
+  --checkbox-border-color: var(--enterprise-control-border);
+  --checkbox-border-color-hover: var(--enterprise-accent);
+
+  --tag-color: var(--enterprise-link-color);
+  --tag-color-hover: var(--enterprise-link-hover-color);
+  --tag-background: transparent;
+  --tag-background-hover: var(--enterprise-accent-soft);
+  --tag-border-color: transparent;
+  --tag-border-color-hover: transparent;
+
+  --hr-color: var(--enterprise-hairline);
+  --embed-border-left: var(--enterprise-divider-width) solid var(--enterprise-control-border);
+  --embed-background: transparent;
+
+  --nav-item-color: var(--enterprise-text-muted);
+  --nav-item-color-hover: var(--enterprise-text-normal);
+  --nav-item-color-active: var(--enterprise-text-normal);
+  --nav-item-background-hover: var(--enterprise-hover);
+  --nav-item-background-active: var(--enterprise-accent-soft);
+  --nav-indentation-guide-color: var(--enterprise-hairline);
+
+  --tab-background-active: var(--enterprise-surface-primary);
+  --tab-text-color: var(--enterprise-text-faint);
+  --tab-text-color-active: var(--enterprise-text-normal);
+  --tab-container-background: var(--enterprise-surface-deep);
+  --tab-divider-color: var(--enterprise-hairline);
+  --tab-outline-color: var(--enterprise-hairline);
+
+  --ribbon-background: var(--enterprise-surface-deep);
+  --status-bar-background: var(--enterprise-surface-deep);
+  --status-bar-border-color: var(--enterprise-hairline);
+  --status-bar-text-color: var(--enterprise-text-faint);
+  --titlebar-background: var(--enterprise-surface-deep);
+  --titlebar-background-focused: var(--enterprise-surface-deep);
+  --titlebar-text-color: var(--enterprise-text-faint);
+  --titlebar-text-color-focused: var(--enterprise-text-muted);
+
+  --divider-color: var(--enterprise-hairline);
+  --divider-color-hover: var(--enterprise-accent);
+  --divider-width: var(--enterprise-divider-width);
+
+  --modal-background: var(--enterprise-surface-secondary);
+  --modal-border-color: var(--enterprise-hairline);
+  --modal-radius: var(--enterprise-radius-floating);
+  --prompt-border-color: var(--enterprise-hairline);
+
+  --metadata-background: transparent;
+  --metadata-divider-color: var(--enterprise-hairline);
+  --metadata-divider-color-hover: var(--enterprise-control-border);
+  --metadata-divider-color-focus: var(--enterprise-accent);
+  --metadata-input-background: transparent;
+  --metadata-input-background-hover: var(--enterprise-hover);
+  --metadata-input-text-color: var(--enterprise-text-normal);
+  --metadata-label-text-color: var(--enterprise-text-faint);
+  --metadata-label-text-color-hover: var(--enterprise-text-muted);
+  --metadata-label-font: var(--enterprise-font-mono);
+
+  --scrollbar-bg: transparent;
+  --scrollbar-thumb-bg: var(--enterprise-control-border);
+  --scrollbar-active-thumb-bg: var(--enterprise-text-faint);
+
+  --radius-s: var(--enterprise-radius-style);
+  --radius-m: var(--enterprise-radius-card);
+  --radius-l: var(--enterprise-radius-floating);
+  --input-radius: var(--enterprise-radius-style);
+  --button-radius: var(--enterprise-radius-style);
+  --clickable-icon-radius: var(--enterprise-radius-style);
+  --toggle-radius: var(--enterprise-radius-pill);
+  --toggle-thumb-radius: var(--enterprise-radius-pill);
+  --slider-thumb-radius: var(--enterprise-radius-pill);
+  --toggle-thumb-color: var(--enterprise-knob);
+
+  --shadow-s: 0 0 0 var(--enterprise-divider-width) var(--enterprise-hairline);
+  --shadow-l: 0 var(--enterprise-space-5) var(--enterprise-space-6) var(--enterprise-shadow-color);
+
+  --icon-color: var(--enterprise-text-faint);
+  --icon-color-hover: var(--enterprise-text-normal);
+  --icon-color-active: var(--enterprise-accent);
+
+  --canvas-background: var(--enterprise-surface-primary);
+  --canvas-card-label-color: var(--enterprise-text-faint);
+  --canvas-dot-pattern: var(--enterprise-hairline);
+  --graph-node: var(--enterprise-text-normal);
+  --graph-text: var(--enterprise-text-muted);
+  --graph-line: var(--enterprise-control-border);
+  --graph-node-unresolved: var(--enterprise-text-faint);
+  --graph-node-focused: var(--enterprise-accent);
+}
