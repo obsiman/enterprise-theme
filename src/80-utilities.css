@@ -1,0 +1,45 @@
+/* Note utility classes. Add them through frontmatter: cssclasses: [enterprise-hand]. */
+.enterprise-hand.markdown-preview-view,
+.enterprise-hand .markdown-preview-view,
+.enterprise-hand.markdown-source-view,
+.enterprise-hand .markdown-source-view {
+  font-family: var(--enterprise-font-hand);
+  font-size: var(--enterprise-hand-size);
+  font-weight: var(--enterprise-hand-weight);
+  line-height: 1.45;
+}
+
+.enterprise-paper.markdown-preview-view,
+.enterprise-paper .markdown-preview-view,
+.enterprise-paper.markdown-source-view,
+.enterprise-paper .markdown-source-view {
+  background-image:
+    linear-gradient(
+      to bottom,
+      transparent calc(var(--enterprise-body-line-height) * 1em - var(--enterprise-divider-width)),
+      var(--enterprise-hairline) calc(var(--enterprise-body-line-height) * 1em - var(--enterprise-divider-width)),
+      var(--enterprise-hairline) calc(var(--enterprise-body-line-height) * 1em)
+    );
+  background-size: 100% calc(var(--enterprise-body-line-height) * 1em);
+}
+
+.enterprise-wide {
+  --file-line-width: calc(var(--enterprise-reading-width) * 1.28);
+}
+
+.enterprise-narrow {
+  --file-line-width: calc(var(--enterprise-reading-width) * 0.78);
+}
+
+.enterprise-dense {
+  --enterprise-paragraph-spacing: 0.7em;
+  --enterprise-heading-spacing: 1.1em;
+}
+
+.enterprise-no-title-stroke .inline-title {
+  padding-bottom: 0;
+}
+
+.enterprise-no-title-stroke .inline-title::after {
+  display: none;
+}
