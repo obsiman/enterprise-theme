@@ -34,12 +34,12 @@ jobs:
 
       - name: Verify pull requests commit generated CSS
         if: github.event_name == 'pull_request'
-        run: git diff --exit-code -- theme.css
+        run: test -z "$(git status --porcelain -- theme.css)"
 
       - name: Keep generated CSS synchronized on main
         if: github.event_name == 'push'
         run: |
-          if git diff --quiet -- theme.css; then
+          if [ -z "$(git status --porcelain -- theme.css)" ]; then
             exit 0
           fi
           git config user.name "github-actions[bot]"
