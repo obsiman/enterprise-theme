@@ -1,0 +1,1425 @@
+/*
+ * Enterprise for Obsidian
+ * Generated file. Edit source modules under src/ and run npm run build.
+ * No remote assets are loaded by this theme.
+ */
+
+/* ===== src/00-style-settings.css ===== */
+/* @settings
+
+name: Enterprise
+id: enterprise-theme
+settings:
+  - id: enterprise-presets-heading
+    title: Presets
+    type: heading
+    level: 1
+    collapsed: false
+  - id: enterprise-preset
+    title: Visual preset
+    description: Reference keeps the graphite, warm-paper, restrained-orange visual language. Neutral softens the marker. High contrast strengthens edges and text separation.
+    type: class-select
+    allowEmpty: false
+    default: enterprise-preset-reference
+    options:
+      - label: Reference
+        value: enterprise-preset-reference
+      - label: Neutral
+        value: enterprise-preset-neutral
+      - label: High contrast
+        value: enterprise-preset-high-contrast
+
+  - id: enterprise-colors-heading
+    title: Colors
+    type: heading
+    level: 1
+    collapsed: true
+  - id: enterprise-user-surface-primary
+    title: Primary surface
+    type: variable-themed-color
+    format: hex
+    default-light: '#f6f3ec'
+    default-dark: '#090a0c'
+  - id: enterprise-user-surface-secondary
+    title: Secondary surface
+    type: variable-themed-color
+    format: hex
+    default-light: '#fffdf7'
+    default-dark: '#0f1113'
+  - id: enterprise-user-surface-tertiary
+    title: Tertiary surface
+    type: variable-themed-color
+    format: hex
+    default-light: '#ede9df'
+    default-dark: '#16181a'
+  - id: enterprise-user-text-normal
+    title: Primary text
+    type: variable-themed-color
+    format: hex
+    default-light: '#171a20'
+    default-dark: '#f6f3ec'
+  - id: enterprise-user-text-muted
+    title: Muted text
+    type: variable-themed-color
+    format: hex
+    default-light: '#4d4a42'
+    default-dark: '#c9c4b8'
+  - id: enterprise-user-text-faint
+    title: Faint text
+    type: variable-themed-color
+    format: hex
+    default-light: '#5a574e'
+    default-dark: '#8e897d'
+  - id: enterprise-user-accent
+    title: Marker accent
+    type: variable-themed-color
+    format: hex
+    default-light: '#d43f16'
+    default-dark: '#ff5a2d'
+  - id: enterprise-user-accent-hover
+    title: Marker accent hover
+    type: variable-themed-color
+    format: hex
+    default-light: '#a73514'
+    default-dark: '#ff7248'
+  - id: enterprise-user-success
+    title: Success
+    type: variable-themed-color
+    format: hex
+    default-light: '#5e7a60'
+    default-dark: '#7d9a7f'
+  - id: enterprise-user-warning
+    title: Warning
+    type: variable-themed-color
+    format: hex
+    default-light: '#866c32'
+    default-dark: '#c2a35c'
+  - id: enterprise-user-danger
+    title: Danger
+    type: variable-themed-color
+    format: hex
+    default-light: '#b33a2b'
+    default-dark: '#e36350'
+  - id: enterprise-user-selection
+    title: Selection overlay
+    type: variable-color
+    format: rgb
+    opacity: true
+    default: 'rgba(255, 90, 45, 0.24)'
+
+  - id: enterprise-typography-heading
+    title: Typography
+    type: heading
+    level: 1
+    collapsed: true
+  - id: enterprise-font-display
+    title: Display font
+    description: Used for page titles and H1-H5. Install the font locally if you use a custom family.
+    type: variable-text
+    default: '"Bricolage Grotesque", "Instrument Sans", -apple-system, BlinkMacSystemFont, system-ui, sans-serif'
+  - id: enterprise-font-body
+    title: Body font
+    type: variable-text
+    default: '"Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif'
+  - id: enterprise-font-mono
+    title: Monospace font
+    type: variable-text
+    default: '"Spline Sans Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace'
+  - id: enterprise-font-hand
+    title: Handwriting font
+    type: variable-text
+    default: '"Caveat", "Segoe Print", "Bradley Hand", cursive'
+  - id: enterprise-body-size
+    title: Body size
+    type: variable-number-slider
+    default: 17
+    min: 13
+    max: 24
+    step: 1
+    format: px
+  - id: enterprise-body-line-height
+    title: Body line height
+    type: variable-number-slider
+    default: 1.68
+    min: 1.2
+    max: 2
+    step: 0.02
+  - id: enterprise-reading-width
+    title: Reading width
+    type: variable-number-slider
+    default: 792
+    min: 520
+    max: 1200
+    step: 8
+    format: px
+  - id: enterprise-bold-weight
+    title: Bold weight
+    type: variable-number-slider
+    default: 640
+    min: 500
+    max: 800
+    step: 10
+
+  - id: enterprise-title-heading
+    title: Title and headings
+    type: heading
+    level: 1
+    collapsed: true
+  - id: enterprise-title-decoration
+    title: Page-title decoration
+    type: class-select
+    allowEmpty: false
+    default: enterprise-title-marker
+    options:
+      - label: Marker stroke
+        value: enterprise-title-marker
+      - label: Hairline
+        value: enterprise-title-rule
+      - label: None
+        value: enterprise-title-none
+  - id: enterprise-title-decoration-color
+    title: Page-title decoration color
+    type: variable-themed-color
+    format: hex
+    default-light: '#d43f16'
+    default-dark: '#ff5a2d'
+  - id: enterprise-title-stroke-width
+    title: Page-title stroke width
+    type: variable-number-slider
+    default: 190
+    min: 40
+    max: 480
+    step: 5
+    format: px
+  - id: enterprise-title-stroke-height
+    title: Page-title stroke height
+    type: variable-number-slider
+    default: 7
+    min: 1
+    max: 18
+    step: 1
+    format: px
+  - id: enterprise-title-stroke-gap
+    title: Page-title stroke gap
+    type: variable-number-slider
+    default: 8
+    min: 0
+    max: 28
+    step: 1
+    format: px
+  - id: enterprise-title-stroke-opacity
+    title: Page-title stroke opacity
+    type: variable-number-slider
+    default: 0.92
+    min: 0.1
+    max: 1
+    step: 0.02
+  - id: enterprise-title-size
+    title: Page-title size
+    type: variable-number-slider
+    default: 42
+    min: 26
+    max: 72
+    step: 1
+    format: px
+  - id: enterprise-title-weight
+    title: Page-title weight
+    type: variable-number-slider
+    default: 640
+    min: 400
+    max: 800
+    step: 10
+  - id: enterprise-title-tracking
+    title: Page-title tracking
+    type: variable-number-slider
+    default: -0.015
+    min: -0.08
+    max: 0.08
+    step: 0.005
+    format: em
+  - id: enterprise-title-spacing
+    title: Space below page title
+    type: variable-number-slider
+    default: 22
+    min: 0
+    max: 64
+    step: 2
+    format: px
+  - id: enterprise-disable-h2-rule
+    title: Disable H2 hairline
+    type: class-toggle
+    default: false
+  - id: enterprise-h2-rule-color
+    title: H2 hairline color
+    type: variable-themed-color
+    format: hex
+    default-light: '#d8d1c4'
+    default-dark: '#323438'
+  - id: enterprise-h2-rule-thickness
+    title: H2 hairline thickness
+    type: variable-number-slider
+    default: 1
+    min: 1
+    max: 4
+    step: 1
+    format: px
+
+  - id: enterprise-hand-heading
+    title: Handwritten layer
+    type: heading
+    level: 1
+    collapsed: true
+  - id: enterprise-disable-handwriting
+    title: Disable automatic handwriting
+    description: Returns blockquotes, selected callout bodies, comments, tags, status text, and utility handwriting to the body face.
+    type: class-toggle
+    default: false
+  - id: enterprise-hand-size
+    title: Handwriting size
+    type: variable-number-slider
+    default: 23
+    min: 16
+    max: 34
+    step: 1
+    format: px
+  - id: enterprise-hand-weight
+    title: Handwriting weight
+    type: variable-number-slider
+    default: 500
+    min: 300
+    max: 700
+    step: 25
+  - id: enterprise-hand-color
+    title: Handwriting color
+    type: variable-themed-color
+    format: hex
+    default-light: '#b93613'
+    default-dark: '#ff5a2d'
+
+  - id: enterprise-links-heading
+    title: Links and highlights
+    type: heading
+    level: 1
+    collapsed: true
+  - id: enterprise-link-color
+    title: Link color
+    type: variable-themed-color
+    format: hex
+    default-light: '#b93613'
+    default-dark: '#ff5a2d'
+  - id: enterprise-link-hover-color
+    title: Link hover color
+    type: variable-themed-color
+    format: hex
+    default-light: '#8f2e10'
+    default-dark: '#ff7248'
+  - id: enterprise-link-underline-thickness
+    title: Link underline thickness
+    type: variable-number-slider
+    default: 1.5
+    min: 1
+    max: 4
+    step: 0.5
+    format: px
+  - id: enterprise-highlight-opacity
+    title: Highlight opacity
+    type: variable-number-slider
+    default: 0.24
+    min: 0.08
+    max: 0.6
+    step: 0.02
+
+  - id: enterprise-layout-heading
+    title: Layout
+    type: heading
+    level: 1
+    collapsed: true
+  - id: enterprise-content-padding
+    title: Note horizontal padding
+    type: variable-number-slider
+    default: 32
+    min: 12
+    max: 80
+    step: 2
+    format: px
+  - id: enterprise-heading-spacing
+    title: Heading spacing
+    type: variable-number-slider
+    default: 1.55
+    min: 0.8
+    max: 2.4
+    step: 0.05
+    format: em
+  - id: enterprise-paragraph-spacing
+    title: Paragraph spacing
+    type: variable-number-slider
+    default: 1.05
+    min: 0.4
+    max: 2
+    step: 0.05
+    format: em
+
+  - id: enterprise-borders-heading
+    title: Borders
+    type: heading
+    level: 1
+    collapsed: true
+  - id: enterprise-border-color
+    title: Hairline color
+    type: variable-themed-color
+    format: hex
+    default-light: '#d8d1c4'
+    default-dark: '#323438'
+  - id: enterprise-control-border-color
+    title: Control border
+    type: variable-themed-color
+    format: hex
+    default-light: '#777166'
+    default-dark: '#7b7d80'
+  - id: enterprise-divider-width
+    title: Divider width
+    type: variable-number-slider
+    default: 1
+    min: 1
+    max: 4
+    step: 1
+    format: px
+
+  - id: enterprise-components-heading
+    title: Components
+    type: heading
+    level: 1
+    collapsed: true
+  - id: enterprise-radius-style
+    title: Corner profile
+    type: variable-select
+    default: 10px
+    options:
+      - label: Square
+        value: 2px
+      - label: Subtle
+        value: 10px
+      - label: Soft
+        value: 16px
+      - label: Rounded
+        value: 22px
+  - id: enterprise-callout-border-width
+    title: Callout border width
+    type: variable-number-slider
+    default: 1
+    min: 0
+    max: 4
+    step: 1
+    format: px
+  - id: enterprise-table-row-height
+    title: Table row minimum height
+    type: variable-number-slider
+    default: 36
+    min: 28
+    max: 64
+    step: 2
+    format: px
+
+  - id: enterprise-interface-heading
+    title: Interface
+    type: heading
+    level: 1
+    collapsed: true
+  - id: enterprise-compact-interface
+    title: Compact interface
+    type: class-toggle
+    default: false
+  - id: enterprise-hide-ribbon
+    title: Hide left ribbon
+    description: Optional. Off by default so the theme never removes navigation on installation.
+    type: class-toggle
+    default: false
+  - id: enterprise-nav-item-height
+    title: Navigation item height
+    type: variable-number-slider
+    default: 30
+    min: 24
+    max: 44
+    step: 1
+    format: px
+  - id: enterprise-interface-font-size
+    title: Interface font size
+    type: variable-number-slider
+    default: 13
+    min: 11
+    max: 17
+    step: 1
+    format: px
+
+  - id: enterprise-advanced-heading
+    title: Advanced tokens
+    type: heading
+    level: 1
+    collapsed: true
+  - id: enterprise-motion-duration
+    title: Motion duration
+    type: variable-number-slider
+    default: 140
+    min: 0
+    max: 500
+    step: 10
+    format: ms
+  - id: enterprise-focus-ring-width
+    title: Focus-ring width
+    type: variable-number-slider
+    default: 2
+    min: 1
+    max: 5
+    step: 1
+    format: px
+  - id: enterprise-interface-density
+    title: Interface density
+    type: variable-select
+    default: 1
+    options:
+      - label: Dense
+        value: 0.88
+      - label: Standard
+        value: 1
+      - label: Spacious
+        value: 1.12
+
+*/
+
+/* ===== src/10-primitives.css ===== */
+body {
+  /* Primitive typography roles. Style Settings may override these exact variables. */
+  --enterprise-font-display: "Bricolage Grotesque", "Instrument Sans", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --enterprise-font-body: "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --enterprise-font-mono: "Spline Sans Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --enterprise-font-hand: "Caveat", "Segoe Print", "Bradley Hand", cursive;
+
+  /* Primitive scale. */
+  --enterprise-body-size: 17px;
+  --enterprise-body-line-height: 1.68;
+  --enterprise-reading-width: 792px;
+  --enterprise-bold-weight: 640;
+  --enterprise-title-size: 42px;
+  --enterprise-title-weight: 640;
+  --enterprise-title-tracking: -0.015em;
+  --enterprise-title-spacing: 22px;
+  --enterprise-title-stroke-width: 190px;
+  --enterprise-title-stroke-height: 7px;
+  --enterprise-title-stroke-gap: 8px;
+  --enterprise-title-stroke-opacity: 0.92;
+  --enterprise-h2-rule-thickness: 1px;
+  --enterprise-hand-size: 23px;
+  --enterprise-hand-weight: 500;
+  --enterprise-link-underline-thickness: 1.5px;
+  --enterprise-highlight-opacity: 0.24;
+  --enterprise-content-padding: 32px;
+  --enterprise-heading-spacing: 1.55em;
+  --enterprise-paragraph-spacing: 1.05em;
+  --enterprise-divider-width: 1px;
+  --enterprise-radius-style: 10px;
+  --enterprise-callout-border-width: 1px;
+  --enterprise-table-row-height: 36px;
+  --enterprise-nav-item-height: 30px;
+  --enterprise-interface-font-size: 13px;
+  --enterprise-interface-density: 1;
+  --enterprise-motion-duration: 140ms;
+  --enterprise-focus-ring-width: 2px;
+
+  /* Fixed physical tokens. */
+  --enterprise-radius-micro: 2px;
+  --enterprise-radius-card: 16px;
+  --enterprise-radius-floating: 20px;
+  --enterprise-radius-pill: 999px;
+  --enterprise-space-1: 4px;
+  --enterprise-space-2: 8px;
+  --enterprise-space-3: 12px;
+  --enterprise-space-4: 16px;
+  --enterprise-space-5: 24px;
+  --enterprise-space-6: 32px;
+
+  /* Non-user semantic support colors live here so downstream modules contain no raw colors. */
+  --enterprise-dark-surface-primary: #090a0c;
+  --enterprise-dark-surface-secondary: #0f1113;
+  --enterprise-dark-surface-tertiary: #16181a;
+  --enterprise-dark-surface-deep: #07080b;
+  --enterprise-dark-surface-overlay: #1b1c1f;
+  --enterprise-dark-text-normal: #f6f3ec;
+  --enterprise-dark-text-muted: #c9c4b8;
+  --enterprise-dark-text-faint: #8e897d;
+  --enterprise-dark-text-heading-secondary: #ddd8cc;
+  --enterprise-dark-accent: #ff5a2d;
+  --enterprise-dark-accent-hover: #ff7248;
+  --enterprise-dark-accent-soft: rgba(255, 90, 45, 0.11);
+  --enterprise-dark-accent-strong: rgba(255, 90, 45, 0.24);
+  --enterprise-dark-hairline: #323438;
+  --enterprise-dark-control-border: #7b7d80;
+  --enterprise-dark-hover: rgba(246, 243, 236, 0.08);
+  --enterprise-dark-shadow: rgba(0, 0, 0, 0.45);
+  --enterprise-dark-success: #7d9a7f;
+  --enterprise-dark-warning: #c2a35c;
+  --enterprise-dark-danger: #e36350;
+
+  --enterprise-light-surface-primary: #f6f3ec;
+  --enterprise-light-surface-secondary: #fffdf7;
+  --enterprise-light-surface-tertiary: #ede9df;
+  --enterprise-light-surface-deep: #f1ede2;
+  --enterprise-light-surface-overlay: #fffdf7;
+  --enterprise-light-text-normal: #171a20;
+  --enterprise-light-text-muted: #4d4a42;
+  --enterprise-light-text-faint: #5a574e;
+  --enterprise-light-text-heading-secondary: #2e2c26;
+  --enterprise-light-accent: #d43f16;
+  --enterprise-light-accent-hover: #a73514;
+  --enterprise-light-accent-soft: rgba(212, 63, 22, 0.08);
+  --enterprise-light-accent-strong: rgba(212, 63, 22, 0.22);
+  --enterprise-light-hairline: #d8d1c4;
+  --enterprise-light-control-border: #777166;
+  --enterprise-light-hover: rgba(23, 26, 32, 0.07);
+  --enterprise-light-shadow: rgba(23, 26, 32, 0.18);
+  --enterprise-light-success: #5e7a60;
+  --enterprise-light-warning: #866c32;
+  --enterprise-light-danger: #b33a2b;
+
+  --enterprise-selection: rgba(255, 90, 45, 0.24);
+  --enterprise-knob: #f6f3ec;
+}
+
+.theme-dark {
+  --enterprise-user-surface-primary: var(--enterprise-dark-surface-primary);
+  --enterprise-user-surface-secondary: var(--enterprise-dark-surface-secondary);
+  --enterprise-user-surface-tertiary: var(--enterprise-dark-surface-tertiary);
+  --enterprise-user-text-normal: var(--enterprise-dark-text-normal);
+  --enterprise-user-text-muted: var(--enterprise-dark-text-muted);
+  --enterprise-user-text-faint: var(--enterprise-dark-text-faint);
+  --enterprise-user-accent: var(--enterprise-dark-accent);
+  --enterprise-user-accent-hover: var(--enterprise-dark-accent-hover);
+  --enterprise-user-success: var(--enterprise-dark-success);
+  --enterprise-user-warning: var(--enterprise-dark-warning);
+  --enterprise-user-danger: var(--enterprise-dark-danger);
+  --enterprise-title-decoration-color: var(--enterprise-dark-accent);
+  --enterprise-h2-rule-color: var(--enterprise-dark-hairline);
+  --enterprise-hand-color: var(--enterprise-dark-accent);
+  --enterprise-link-color: var(--enterprise-dark-accent);
+  --enterprise-link-hover-color: var(--enterprise-dark-accent-hover);
+  --enterprise-border-color: var(--enterprise-dark-hairline);
+  --enterprise-control-border-color: var(--enterprise-dark-control-border);
+}
+
+.theme-light {
+  --enterprise-user-surface-primary: var(--enterprise-light-surface-primary);
+  --enterprise-user-surface-secondary: var(--enterprise-light-surface-secondary);
+  --enterprise-user-surface-tertiary: var(--enterprise-light-surface-tertiary);
+  --enterprise-user-text-normal: var(--enterprise-light-text-normal);
+  --enterprise-user-text-muted: var(--enterprise-light-text-muted);
+  --enterprise-user-text-faint: var(--enterprise-light-text-faint);
+  --enterprise-user-accent: var(--enterprise-light-accent);
+  --enterprise-user-accent-hover: var(--enterprise-light-accent-hover);
+  --enterprise-user-success: var(--enterprise-light-success);
+  --enterprise-user-warning: var(--enterprise-light-warning);
+  --enterprise-user-danger: var(--enterprise-light-danger);
+  --enterprise-title-decoration-color: var(--enterprise-light-accent);
+  --enterprise-h2-rule-color: var(--enterprise-light-hairline);
+  --enterprise-hand-color: var(--enterprise-light-accent);
+  --enterprise-link-color: var(--enterprise-light-accent);
+  --enterprise-link-hover-color: var(--enterprise-light-accent-hover);
+  --enterprise-border-color: var(--enterprise-light-hairline);
+  --enterprise-control-border-color: var(--enterprise-light-control-border);
+}
+
+/* ===== src/20-semantic.css ===== */
+.theme-dark {
+  --enterprise-surface-primary: var(--enterprise-user-surface-primary);
+  --enterprise-surface-secondary: var(--enterprise-user-surface-secondary);
+  --enterprise-surface-tertiary: var(--enterprise-user-surface-tertiary);
+  --enterprise-surface-deep: var(--enterprise-dark-surface-deep);
+  --enterprise-surface-overlay: var(--enterprise-dark-surface-overlay);
+  --enterprise-text-normal: var(--enterprise-user-text-normal);
+  --enterprise-text-muted: var(--enterprise-user-text-muted);
+  --enterprise-text-faint: var(--enterprise-user-text-faint);
+  --enterprise-text-heading-secondary: var(--enterprise-dark-text-heading-secondary);
+  --enterprise-accent: var(--enterprise-user-accent);
+  --enterprise-accent-hover: var(--enterprise-user-accent-hover);
+  --enterprise-accent-soft: var(--enterprise-dark-accent-soft);
+  --enterprise-accent-strong: var(--enterprise-dark-accent-strong);
+  --enterprise-hairline: var(--enterprise-border-color);
+  --enterprise-control-border: var(--enterprise-control-border-color);
+  --enterprise-hover: var(--enterprise-dark-hover);
+  --enterprise-shadow-color: var(--enterprise-dark-shadow);
+  --enterprise-success: var(--enterprise-user-success);
+  --enterprise-warning: var(--enterprise-user-warning);
+  --enterprise-danger: var(--enterprise-user-danger);
+  --enterprise-highlight: var(--enterprise-selection);
+}
+
+.theme-light {
+  --enterprise-surface-primary: var(--enterprise-user-surface-primary);
+  --enterprise-surface-secondary: var(--enterprise-user-surface-secondary);
+  --enterprise-surface-tertiary: var(--enterprise-user-surface-tertiary);
+  --enterprise-surface-deep: var(--enterprise-light-surface-deep);
+  --enterprise-surface-overlay: var(--enterprise-light-surface-overlay);
+  --enterprise-text-normal: var(--enterprise-user-text-normal);
+  --enterprise-text-muted: var(--enterprise-user-text-muted);
+  --enterprise-text-faint: var(--enterprise-user-text-faint);
+  --enterprise-text-heading-secondary: var(--enterprise-light-text-heading-secondary);
+  --enterprise-accent: var(--enterprise-user-accent);
+  --enterprise-accent-hover: var(--enterprise-user-accent-hover);
+  --enterprise-accent-soft: var(--enterprise-light-accent-soft);
+  --enterprise-accent-strong: var(--enterprise-light-accent-strong);
+  --enterprise-hairline: var(--enterprise-border-color);
+  --enterprise-control-border: var(--enterprise-control-border-color);
+  --enterprise-hover: var(--enterprise-light-hover);
+  --enterprise-shadow-color: var(--enterprise-light-shadow);
+  --enterprise-success: var(--enterprise-user-success);
+  --enterprise-warning: var(--enterprise-user-warning);
+  --enterprise-danger: var(--enterprise-user-danger);
+  --enterprise-highlight: var(--enterprise-selection);
+}
+
+/* Presets change primitive intent, not component rules. Style Settings variables use
+   higher-specificity body.theme-*.css-settings-manager selectors and remain the final override. */
+body.enterprise-preset-neutral.theme-dark {
+  --enterprise-dark-accent: var(--enterprise-dark-text-muted);
+  --enterprise-dark-accent-hover: var(--enterprise-dark-text-normal);
+}
+
+body.enterprise-preset-neutral.theme-light {
+  --enterprise-light-accent: var(--enterprise-light-text-muted);
+  --enterprise-light-accent-hover: var(--enterprise-light-text-normal);
+}
+
+body.enterprise-preset-high-contrast.theme-dark {
+  --enterprise-dark-surface-secondary: var(--enterprise-dark-surface-deep);
+  --enterprise-dark-text-muted: var(--enterprise-dark-text-normal);
+  --enterprise-dark-hairline: var(--enterprise-dark-control-border);
+}
+
+body.enterprise-preset-high-contrast.theme-light {
+  --enterprise-light-surface-secondary: var(--enterprise-light-surface-primary);
+  --enterprise-light-text-muted: var(--enterprise-light-text-normal);
+  --enterprise-light-hairline: var(--enterprise-light-control-border);
+}
+
+/* ===== src/30-obsidian-adapter.css ===== */
+.theme-dark,
+.theme-light {
+  --background-primary: var(--enterprise-surface-primary);
+  --background-primary-alt: var(--enterprise-surface-secondary);
+  --background-secondary: var(--enterprise-surface-deep);
+  --background-secondary-alt: var(--enterprise-surface-tertiary);
+  --background-modifier-hover: var(--enterprise-hover);
+  --background-modifier-active-hover: var(--enterprise-accent-soft);
+  --background-modifier-border: var(--enterprise-hairline);
+  --background-modifier-border-hover: var(--enterprise-control-border);
+  --background-modifier-border-focus: var(--enterprise-accent);
+  --background-modifier-form-field: var(--enterprise-surface-secondary);
+  --background-modifier-message: var(--enterprise-surface-overlay);
+
+  --text-normal: var(--enterprise-text-normal);
+  --text-muted: var(--enterprise-text-muted);
+  --text-faint: var(--enterprise-text-faint);
+  --text-accent: var(--enterprise-link-color);
+  --text-accent-hover: var(--enterprise-link-hover-color);
+  --text-error: var(--enterprise-danger);
+  --text-warning: var(--enterprise-warning);
+  --text-success: var(--enterprise-success);
+  --text-selection: var(--enterprise-highlight);
+  --text-highlight-bg: var(--enterprise-highlight);
+
+  --interactive-normal: var(--enterprise-surface-tertiary);
+  --interactive-hover: var(--enterprise-surface-overlay);
+  --interactive-accent: var(--enterprise-accent);
+  --interactive-accent-hover: var(--enterprise-accent-hover);
+
+  --font-interface-theme: var(--enterprise-font-body);
+  --font-text-theme: var(--enterprise-font-body);
+  --font-monospace-theme: var(--enterprise-font-mono);
+  --font-text-size: var(--enterprise-body-size);
+  --line-height-normal: var(--enterprise-body-line-height);
+  --bold-weight: var(--enterprise-bold-weight);
+  --bold-color: var(--enterprise-text-normal);
+  --file-line-width: var(--enterprise-reading-width);
+
+  --heading-spacing: var(--enterprise-heading-spacing);
+  --h1-font: var(--enterprise-font-display);
+  --h2-font: var(--enterprise-font-display);
+  --h3-font: var(--enterprise-font-display);
+  --h4-font: var(--enterprise-font-display);
+  --h5-font: var(--enterprise-font-display);
+  --h6-font: var(--enterprise-font-mono);
+  --h1-weight: var(--enterprise-bold-weight);
+  --h2-weight: var(--enterprise-bold-weight);
+  --h3-weight: var(--enterprise-bold-weight);
+  --h4-weight: var(--enterprise-bold-weight);
+  --h5-weight: var(--enterprise-bold-weight);
+  --h6-weight: var(--enterprise-hand-weight);
+  --h1-color: var(--enterprise-text-normal);
+  --h2-color: var(--enterprise-text-normal);
+  --h3-color: var(--enterprise-text-normal);
+  --h4-color: var(--enterprise-text-heading-secondary);
+  --h5-color: var(--enterprise-text-heading-secondary);
+  --h6-color: var(--enterprise-text-faint);
+
+  --inline-title-font: var(--enterprise-font-display);
+  --inline-title-size: var(--enterprise-title-size);
+  --inline-title-weight: var(--enterprise-title-weight);
+  --inline-title-color: var(--enterprise-text-normal);
+
+  --link-color: var(--enterprise-link-color);
+  --link-color-hover: var(--enterprise-link-hover-color);
+  --link-external-color: var(--enterprise-link-color);
+  --link-external-color-hover: var(--enterprise-link-hover-color);
+  --link-unresolved-color: var(--enterprise-text-faint);
+
+  --blockquote-border-color: var(--enterprise-control-border);
+  --blockquote-color: var(--enterprise-text-muted);
+  --code-background: var(--enterprise-surface-secondary);
+  --code-normal: var(--enterprise-text-muted);
+  --code-comment: var(--enterprise-text-faint);
+  --code-function: var(--enterprise-link-color);
+  --code-important: var(--enterprise-warning);
+  --code-keyword: var(--enterprise-link-hover-color);
+  --code-property: var(--enterprise-text-normal);
+  --code-punctuation: var(--enterprise-text-faint);
+  --code-string: var(--enterprise-success);
+  --code-tag: var(--enterprise-danger);
+  --code-value: var(--enterprise-warning);
+
+  --table-background: transparent;
+  --table-border-color: var(--enterprise-hairline);
+  --table-header-background: var(--enterprise-surface-secondary);
+  --table-header-background-hover: var(--enterprise-surface-tertiary);
+  --table-row-background-hover: var(--enterprise-hover);
+  --table-text-color: var(--enterprise-text-normal);
+
+  --checkbox-color: var(--enterprise-accent);
+  --checkbox-color-hover: var(--enterprise-accent-hover);
+  --checkbox-border-color: var(--enterprise-control-border);
+  --checkbox-border-color-hover: var(--enterprise-accent);
+
+  --tag-color: var(--enterprise-link-color);
+  --tag-color-hover: var(--enterprise-link-hover-color);
+  --tag-background: transparent;
+  --tag-background-hover: var(--enterprise-accent-soft);
+  --tag-border-color: transparent;
+  --tag-border-color-hover: transparent;
+
+  --hr-color: var(--enterprise-hairline);
+  --embed-border-left: var(--enterprise-divider-width) solid var(--enterprise-control-border);
+  --embed-background: transparent;
+
+  --nav-item-color: var(--enterprise-text-muted);
+  --nav-item-color-hover: var(--enterprise-text-normal);
+  --nav-item-color-active: var(--enterprise-text-normal);
+  --nav-item-background-hover: var(--enterprise-hover);
+  --nav-item-background-active: var(--enterprise-accent-soft);
+  --nav-indentation-guide-color: var(--enterprise-hairline);
+
+  --tab-background-active: var(--enterprise-surface-primary);
+  --tab-text-color: var(--enterprise-text-faint);
+  --tab-text-color-active: var(--enterprise-text-normal);
+  --tab-container-background: var(--enterprise-surface-deep);
+  --tab-divider-color: var(--enterprise-hairline);
+  --tab-outline-color: var(--enterprise-hairline);
+
+  --ribbon-background: var(--enterprise-surface-deep);
+  --status-bar-background: var(--enterprise-surface-deep);
+  --status-bar-border-color: var(--enterprise-hairline);
+  --status-bar-text-color: var(--enterprise-text-faint);
+  --titlebar-background: var(--enterprise-surface-deep);
+  --titlebar-background-focused: var(--enterprise-surface-deep);
+  --titlebar-text-color: var(--enterprise-text-faint);
+  --titlebar-text-color-focused: var(--enterprise-text-muted);
+
+  --divider-color: var(--enterprise-hairline);
+  --divider-color-hover: var(--enterprise-accent);
+  --divider-width: var(--enterprise-divider-width);
+
+  --modal-background: var(--enterprise-surface-secondary);
+  --modal-border-color: var(--enterprise-hairline);
+  --modal-radius: var(--enterprise-radius-floating);
+  --prompt-border-color: var(--enterprise-hairline);
+
+  --metadata-background: transparent;
+  --metadata-divider-color: var(--enterprise-hairline);
+  --metadata-divider-color-hover: var(--enterprise-control-border);
+  --metadata-divider-color-focus: var(--enterprise-accent);
+  --metadata-input-background: transparent;
+  --metadata-input-background-hover: var(--enterprise-hover);
+  --metadata-input-text-color: var(--enterprise-text-normal);
+  --metadata-label-text-color: var(--enterprise-text-faint);
+  --metadata-label-text-color-hover: var(--enterprise-text-muted);
+  --metadata-label-font: var(--enterprise-font-mono);
+
+  --scrollbar-bg: transparent;
+  --scrollbar-thumb-bg: var(--enterprise-control-border);
+  --scrollbar-active-thumb-bg: var(--enterprise-text-faint);
+
+  --radius-s: var(--enterprise-radius-style);
+  --radius-m: var(--enterprise-radius-card);
+  --radius-l: var(--enterprise-radius-floating);
+  --input-radius: var(--enterprise-radius-style);
+  --button-radius: var(--enterprise-radius-style);
+  --clickable-icon-radius: var(--enterprise-radius-style);
+  --toggle-radius: var(--enterprise-radius-pill);
+  --toggle-thumb-radius: var(--enterprise-radius-pill);
+  --slider-thumb-radius: var(--enterprise-radius-pill);
+  --toggle-thumb-color: var(--enterprise-knob);
+
+  --shadow-s: 0 0 0 var(--enterprise-divider-width) var(--enterprise-hairline);
+  --shadow-l: 0 var(--enterprise-space-5) var(--enterprise-space-6) var(--enterprise-shadow-color);
+
+  --icon-color: var(--enterprise-text-faint);
+  --icon-color-hover: var(--enterprise-text-normal);
+  --icon-color-active: var(--enterprise-accent);
+
+  --canvas-background: var(--enterprise-surface-primary);
+  --canvas-card-label-color: var(--enterprise-text-faint);
+  --canvas-dot-pattern: var(--enterprise-hairline);
+  --graph-node: var(--enterprise-text-normal);
+  --graph-text: var(--enterprise-text-muted);
+  --graph-line: var(--enterprise-control-border);
+  --graph-node-unresolved: var(--enterprise-text-faint);
+  --graph-node-focused: var(--enterprise-accent);
+}
+
+/* ===== src/40-typography.css ===== */
+body {
+  font-family: var(--enterprise-font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+.markdown-source-view,
+.markdown-preview-view {
+  font-size: var(--enterprise-body-size);
+  line-height: var(--enterprise-body-line-height);
+}
+
+.inline-title {
+  position: relative;
+  margin-bottom: var(--enterprise-title-spacing);
+  padding-bottom: calc(var(--enterprise-title-stroke-gap) + var(--enterprise-title-stroke-height));
+  font-family: var(--enterprise-font-display);
+  font-size: clamp(calc(var(--enterprise-title-size) * 0.78), 4vw, var(--enterprise-title-size));
+  font-weight: var(--enterprise-title-weight);
+  line-height: 1.06;
+  letter-spacing: var(--enterprise-title-tracking);
+}
+
+.inline-title::after {
+  content: "";
+  display: block;
+  width: min(var(--enterprise-title-stroke-width), calc(100vw - (2 * var(--enterprise-content-padding))));
+  height: var(--enterprise-title-stroke-height);
+  margin-top: var(--enterprise-title-stroke-gap);
+  border-radius: var(--enterprise-radius-pill);
+  background: var(--enterprise-title-decoration-color);
+  opacity: var(--enterprise-title-stroke-opacity);
+  transform: rotate(-0.45deg) skewX(-7deg);
+  transform-origin: left center;
+  clip-path: polygon(0 38%, 9% 24%, 24% 31%, 39% 17%, 56% 27%, 72% 12%, 88% 24%, 100% 8%, 99% 66%, 87% 81%, 71% 72%, 54% 87%, 37% 77%, 19% 91%, 0 78%);
+}
+
+body.enterprise-title-rule .inline-title::after {
+  height: var(--enterprise-h2-rule-thickness);
+  border-radius: 0;
+  transform: none;
+  clip-path: none;
+}
+
+body.enterprise-title-none .inline-title {
+  padding-bottom: 0;
+}
+
+body.enterprise-title-none .inline-title::after {
+  display: none;
+}
+
+.markdown-rendered h1,
+.markdown-rendered h2,
+.markdown-rendered h3,
+.markdown-rendered h4,
+.markdown-rendered h5,
+.cm-s-obsidian .HyperMD-header-1,
+.cm-s-obsidian .HyperMD-header-2,
+.cm-s-obsidian .HyperMD-header-3,
+.cm-s-obsidian .HyperMD-header-4,
+.cm-s-obsidian .HyperMD-header-5,
+.cm-s-obsidian .cm-header-1,
+.cm-s-obsidian .cm-header-2,
+.cm-s-obsidian .cm-header-3,
+.cm-s-obsidian .cm-header-4,
+.cm-s-obsidian .cm-header-5 {
+  font-family: var(--enterprise-font-display);
+  letter-spacing: var(--enterprise-title-tracking);
+}
+
+.markdown-rendered h6,
+.cm-s-obsidian .HyperMD-header-6,
+.cm-s-obsidian .cm-header-6 {
+  font-family: var(--enterprise-font-mono);
+  font-weight: var(--enterprise-hand-weight);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--enterprise-text-faint);
+}
+
+.markdown-rendered h2 {
+  padding-bottom: 0.32em;
+  border-bottom: var(--enterprise-h2-rule-thickness) solid var(--enterprise-h2-rule-color);
+}
+
+.cm-s-obsidian .HyperMD-header-2 {
+  box-shadow: inset 0 calc(-1 * var(--enterprise-h2-rule-thickness)) 0 var(--enterprise-h2-rule-color);
+  padding-bottom: 0.22em;
+}
+
+body.enterprise-disable-h2-rule .markdown-rendered h2 {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+body.enterprise-disable-h2-rule .cm-s-obsidian .HyperMD-header-2 {
+  box-shadow: none;
+  padding-bottom: 0;
+}
+
+strong,
+b,
+.cm-strong {
+  font-weight: var(--enterprise-bold-weight);
+}
+
+.markdown-rendered p {
+  margin-block: 0 var(--enterprise-paragraph-spacing);
+}
+
+.markdown-rendered,
+.cm-scroller {
+  line-height: var(--enterprise-body-line-height);
+}
+
+/* ===== src/50-content.css ===== */
+.markdown-rendered a,
+.cm-s-obsidian span.cm-link,
+.cm-s-obsidian span.cm-hmd-internal-link,
+.cm-s-obsidian span.cm-url {
+  color: var(--enterprise-link-color);
+  text-decoration-color: transparent;
+  text-decoration-thickness: var(--enterprise-link-underline-thickness);
+  text-underline-offset: 0.2em;
+  transition:
+    color var(--enterprise-motion-duration) ease,
+    text-decoration-color var(--enterprise-motion-duration) ease;
+}
+
+.markdown-rendered a:hover,
+.cm-s-obsidian span.cm-link:hover,
+.cm-s-obsidian span.cm-hmd-internal-link:hover,
+.cm-s-obsidian span.cm-url:hover {
+  color: var(--enterprise-link-hover-color);
+  text-decoration: underline;
+  text-decoration-color: var(--enterprise-link-hover-color);
+}
+
+.markdown-rendered mark,
+.cm-highlight {
+  color: inherit;
+  background: var(--enterprise-highlight);
+  border-radius: var(--enterprise-radius-micro);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.markdown-rendered blockquote,
+.cm-s-obsidian .HyperMD-quote {
+  font-family: var(--enterprise-font-hand);
+  font-size: var(--enterprise-hand-size);
+  font-weight: var(--enterprise-hand-weight);
+  line-height: 1.35;
+  color: var(--enterprise-text-muted);
+}
+
+.markdown-rendered blockquote {
+  margin-inline: 0;
+  padding: var(--enterprise-space-1) 0 var(--enterprise-space-1) var(--enterprise-space-4);
+  border-inline-start: var(--enterprise-divider-width) solid var(--enterprise-control-border);
+}
+
+.callout[data-callout="note"] .callout-content,
+.callout[data-callout="tip"] .callout-content,
+.callout[data-callout="quote"] .callout-content {
+  font-family: var(--enterprise-font-hand);
+  font-size: calc(var(--enterprise-hand-size) * 0.96);
+  font-weight: var(--enterprise-hand-weight);
+  line-height: 1.4;
+}
+
+.cm-s-obsidian span.cm-comment {
+  font-family: var(--enterprise-font-hand);
+  font-size: calc(var(--enterprise-hand-size) * 0.9);
+  font-weight: var(--enterprise-hand-weight);
+  color: var(--enterprise-text-faint);
+}
+
+.tag,
+.cm-hashtag {
+  font-family: var(--enterprise-font-hand);
+  font-size: calc(var(--enterprise-hand-size) * 0.72);
+  font-weight: var(--enterprise-hand-weight);
+  color: var(--enterprise-hand-color);
+}
+
+body.enterprise-disable-handwriting .markdown-rendered blockquote,
+body.enterprise-disable-handwriting .cm-s-obsidian .HyperMD-quote,
+body.enterprise-disable-handwriting .callout[data-callout="note"] .callout-content,
+body.enterprise-disable-handwriting .callout[data-callout="tip"] .callout-content,
+body.enterprise-disable-handwriting .callout[data-callout="quote"] .callout-content,
+body.enterprise-disable-handwriting .cm-s-obsidian span.cm-comment,
+body.enterprise-disable-handwriting .tag,
+body.enterprise-disable-handwriting .cm-hashtag {
+  font-family: var(--enterprise-font-body);
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.markdown-rendered code,
+.cm-inline-code {
+  border: var(--enterprise-divider-width) solid var(--enterprise-hairline);
+  border-radius: var(--enterprise-radius-micro);
+  font-family: var(--enterprise-font-mono);
+}
+
+.markdown-rendered pre {
+  border: var(--enterprise-divider-width) solid var(--enterprise-hairline);
+  border-radius: var(--enterprise-radius-style);
+}
+
+.markdown-rendered hr {
+  margin-block: var(--enterprise-space-5);
+  border: 0;
+  border-top: var(--enterprise-divider-width) solid var(--enterprise-hairline);
+}
+
+.markdown-embed,
+.file-embed {
+  border-inline-start: var(--enterprise-divider-width) solid var(--enterprise-control-border);
+  padding-inline-start: var(--enterprise-space-4);
+}
+
+.markdown-rendered ul,
+.markdown-rendered ol {
+  padding-inline-start: calc(var(--enterprise-space-5) + var(--enterprise-space-1));
+}
+
+.markdown-rendered li::marker {
+  color: var(--enterprise-text-faint);
+}
+
+/* ===== src/60-components.css ===== */
+.callout {
+  border: var(--enterprise-callout-border-width) solid var(--enterprise-hairline);
+  border-radius: var(--enterprise-radius-style);
+  background: var(--enterprise-surface-secondary);
+  box-shadow: none;
+}
+
+.callout-title {
+  font-family: var(--enterprise-font-mono);
+  font-size: 0.78em;
+  font-weight: var(--enterprise-bold-weight);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.callout[data-callout="success"],
+.callout[data-callout="check"],
+.callout[data-callout="done"] {
+  --callout-color: var(--enterprise-success);
+}
+
+.callout[data-callout="warning"],
+.callout[data-callout="caution"],
+.callout[data-callout="attention"] {
+  --callout-color: var(--enterprise-warning);
+}
+
+.callout[data-callout="failure"],
+.callout[data-callout="danger"],
+.callout[data-callout="bug"],
+.callout[data-callout="error"] {
+  --callout-color: var(--enterprise-danger);
+}
+
+.markdown-rendered table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.markdown-rendered th,
+.markdown-rendered td {
+  min-height: var(--enterprise-table-row-height);
+  padding: var(--enterprise-space-2) var(--enterprise-space-3);
+  border-color: var(--enterprise-hairline);
+}
+
+.markdown-rendered th {
+  font-family: var(--enterprise-font-mono);
+  font-size: 0.82em;
+  font-weight: var(--enterprise-bold-weight);
+  letter-spacing: 0.035em;
+  text-align: start;
+}
+
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="password"],
+textarea,
+.dropdown {
+  border: var(--enterprise-divider-width) solid var(--enterprise-control-border);
+  border-radius: var(--enterprise-radius-style);
+  background: var(--enterprise-surface-secondary);
+  color: var(--enterprise-text-normal);
+}
+
+input:focus-visible,
+textarea:focus-visible,
+button:focus-visible,
+.clickable-icon:focus-visible {
+  outline: var(--enterprise-focus-ring-width) solid var(--enterprise-accent);
+  outline-offset: var(--enterprise-radius-micro);
+}
+
+button.mod-cta {
+  border-color: var(--enterprise-accent);
+  background: var(--enterprise-accent);
+  color: var(--enterprise-surface-primary);
+}
+
+button.mod-cta:hover {
+  border-color: var(--enterprise-accent-hover);
+  background: var(--enterprise-accent-hover);
+}
+
+input[type="checkbox"] {
+  border: var(--enterprise-divider-width) solid var(--enterprise-control-border);
+}
+
+input[type="checkbox"]:checked {
+  border-color: var(--enterprise-accent);
+  background-color: var(--enterprise-accent);
+}
+
+.tooltip {
+  border: var(--enterprise-divider-width) solid var(--enterprise-hairline);
+  border-radius: var(--enterprise-radius-style);
+  background: var(--enterprise-surface-overlay);
+  color: var(--enterprise-text-normal);
+  font-family: var(--enterprise-font-hand);
+  font-size: calc(var(--enterprise-hand-size) * 0.72);
+}
+
+.modal,
+.prompt,
+.popover {
+  border: var(--enterprise-divider-width) solid var(--enterprise-hairline);
+  box-shadow: var(--shadow-l);
+}
+
+.metadata-container {
+  border-top: var(--enterprise-divider-width) solid var(--enterprise-hairline);
+  border-bottom: var(--enterprise-divider-width) solid var(--enterprise-hairline);
+}
+
+.metadata-property-key {
+  font-family: var(--enterprise-font-mono);
+  color: var(--enterprise-text-faint);
+}
+
+/* ===== src/70-interface.css ===== */
+.workspace {
+  background: var(--enterprise-surface-deep);
+}
+
+.workspace-leaf-content {
+  background: var(--enterprise-surface-primary);
+}
+
+.workspace-tab-header {
+  font-size: var(--enterprise-interface-font-size);
+}
+
+.nav-file-title,
+.nav-folder-title {
+  min-height: calc(var(--enterprise-nav-item-height) * var(--enterprise-interface-density));
+  border-radius: var(--enterprise-radius-style);
+  font-size: var(--enterprise-interface-font-size);
+}
+
+.nav-folder-title {
+  font-weight: var(--enterprise-bold-weight);
+}
+
+.nav-file-title.is-active {
+  box-shadow: inset var(--enterprise-divider-width) 0 0 var(--enterprise-accent);
+}
+
+.workspace-tab-header.is-active::before,
+.workspace-tab-header.is-active::after {
+  display: none;
+}
+
+.workspace-tab-header.is-active {
+  box-shadow: inset 0 calc(-1 * var(--enterprise-divider-width)) 0 var(--enterprise-accent);
+}
+
+.status-bar {
+  border-top: var(--enterprise-divider-width) solid var(--enterprise-hairline);
+  font-family: var(--enterprise-font-hand);
+  font-size: calc(var(--enterprise-interface-font-size) * 0.92);
+}
+
+body.enterprise-disable-handwriting .status-bar,
+body.enterprise-disable-handwriting .tooltip {
+  font-family: var(--enterprise-font-body);
+}
+
+.workspace-ribbon {
+  border-inline-end: var(--enterprise-divider-width) solid var(--enterprise-hairline);
+}
+
+body.enterprise-hide-ribbon .workspace-ribbon.mod-left {
+  display: none;
+}
+
+body.enterprise-compact-interface {
+  --enterprise-interface-density: 0.88;
+  --enterprise-content-padding: var(--enterprise-space-5);
+}
+
+body.enterprise-compact-interface .workspace-tab-header-container,
+body.enterprise-compact-interface .view-header {
+  min-height: calc(var(--enterprise-nav-item-height) * var(--enterprise-interface-density));
+}
+
+.view-header,
+.workspace-tab-header-container,
+.workspace-sidedock-vault-profile {
+  border-color: var(--enterprise-hairline);
+}
+
+.titlebar,
+.status-bar,
+.workspace-ribbon,
+.workspace-tab-header-container {
+  background: var(--enterprise-surface-deep);
+}
+
+.menu,
+.suggestion-container {
+  border: var(--enterprise-divider-width) solid var(--enterprise-hairline);
+  background: var(--enterprise-surface-overlay);
+  box-shadow: var(--shadow-l);
+}
+
+.menu-item {
+  border-radius: var(--enterprise-radius-style);
+}
+
+.menu-item:hover,
+.suggestion-item.is-selected {
+  background: var(--enterprise-hover);
+}
+
+.tree-item-self.mod-active {
+  color: var(--enterprise-text-normal);
+  background: var(--enterprise-accent-soft);
+}
+
+/* ===== src/80-utilities.css ===== */
+/* Note utility classes. Add them through frontmatter: cssclasses: [enterprise-hand]. */
+.enterprise-hand.markdown-preview-view,
+.enterprise-hand .markdown-preview-view,
+.enterprise-hand.markdown-source-view,
+.enterprise-hand .markdown-source-view {
+  font-family: var(--enterprise-font-hand);
+  font-size: var(--enterprise-hand-size);
+  font-weight: var(--enterprise-hand-weight);
+  line-height: 1.45;
+}
+
+.enterprise-paper.markdown-preview-view,
+.enterprise-paper .markdown-preview-view,
+.enterprise-paper.markdown-source-view,
+.enterprise-paper .markdown-source-view {
+  background-image:
+    linear-gradient(
+      to bottom,
+      transparent calc(var(--enterprise-body-line-height) * 1em - var(--enterprise-divider-width)),
+      var(--enterprise-hairline) calc(var(--enterprise-body-line-height) * 1em - var(--enterprise-divider-width)),
+      var(--enterprise-hairline) calc(var(--enterprise-body-line-height) * 1em)
+    );
+  background-size: 100% calc(var(--enterprise-body-line-height) * 1em);
+}
+
+.enterprise-wide {
+  --file-line-width: calc(var(--enterprise-reading-width) * 1.28);
+}
+
+.enterprise-narrow {
+  --file-line-width: calc(var(--enterprise-reading-width) * 0.78);
+}
+
+.enterprise-dense {
+  --enterprise-paragraph-spacing: 0.7em;
+  --enterprise-heading-spacing: 1.1em;
+}
+
+.enterprise-no-title-stroke .inline-title {
+  padding-bottom: 0;
+}
+
+.enterprise-no-title-stroke .inline-title::after {
+  display: none;
+}
+
+/* ===== src/90-responsive.css ===== */
+@media (max-width: 720px) {
+  body {
+    --enterprise-content-padding: var(--enterprise-space-4);
+    --enterprise-title-size: 34px;
+    --enterprise-title-stroke-width: 150px;
+  }
+
+  .markdown-preview-view,
+  .markdown-source-view.mod-cm6 .cm-scroller {
+    padding-inline: var(--enterprise-content-padding);
+  }
+
+  .inline-title::after {
+    width: min(var(--enterprise-title-stroke-width), calc(100vw - (2 * var(--enterprise-content-padding))));
+  }
+
+  .markdown-rendered table {
+    font-size: 0.92em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    --enterprise-motion-duration: 0ms;
+  }
+
+  .inline-title::after {
+    transform: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto;
+    transition-duration: var(--enterprise-motion-duration);
+    animation-duration: var(--enterprise-motion-duration);
+  }
+}
