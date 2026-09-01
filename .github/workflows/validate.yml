@@ -1,0 +1,36 @@
+name: Validate theme
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Build
+        run: npm run build
+
+      - name: Validate generated theme
+        run: npm run validate
+
+      - name: Verify generated file is committed
+        run: git diff --exit-code -- theme.css
+
+      - name: Install lint dependencies
+        run: npm install --ignore-scripts --no-audit --no-fund
+
+      - name: Lint source CSS
+        run: npm run lint

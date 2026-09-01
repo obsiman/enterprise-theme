@@ -1,0 +1,16 @@
+{
+  "name": "obsidian-enterprise-theme",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "validate": "node scripts/validate.mjs",
+    "check": "npm run build && npm run validate",
+    "lint": "stylelint \"src/**/*.css\" \"theme.css\""
+  },
+  "devDependencies": {
+    "stylelint": "^17.0.0",
+    "stylelint-config-obsidianmd": "^0.1.0"
+  }
+}
