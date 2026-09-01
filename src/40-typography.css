@@ -1,0 +1,114 @@
+body {
+  font-family: var(--enterprise-font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+.markdown-source-view,
+.markdown-preview-view {
+  font-size: var(--enterprise-body-size);
+  line-height: var(--enterprise-body-line-height);
+}
+
+.inline-title {
+  position: relative;
+  margin-bottom: var(--enterprise-title-spacing);
+  padding-bottom: calc(var(--enterprise-title-stroke-gap) + var(--enterprise-title-stroke-height));
+  font-family: var(--enterprise-font-display);
+  font-size: clamp(calc(var(--enterprise-title-size) * 0.78), 4vw, var(--enterprise-title-size));
+  font-weight: var(--enterprise-title-weight);
+  line-height: 1.06;
+  letter-spacing: var(--enterprise-title-tracking);
+}
+
+.inline-title::after {
+  content: "";
+  display: block;
+  width: min(var(--enterprise-title-stroke-width), calc(100vw - (2 * var(--enterprise-content-padding))));
+  height: var(--enterprise-title-stroke-height);
+  margin-top: var(--enterprise-title-stroke-gap);
+  border-radius: var(--enterprise-radius-pill);
+  background: var(--enterprise-title-decoration-color);
+  opacity: var(--enterprise-title-stroke-opacity);
+  transform: rotate(-0.45deg) skewX(-7deg);
+  transform-origin: left center;
+  clip-path: polygon(0 38%, 9% 24%, 24% 31%, 39% 17%, 56% 27%, 72% 12%, 88% 24%, 100% 8%, 99% 66%, 87% 81%, 71% 72%, 54% 87%, 37% 77%, 19% 91%, 0 78%);
+}
+
+body.enterprise-title-rule .inline-title::after {
+  height: var(--enterprise-h2-rule-thickness);
+  border-radius: 0;
+  transform: none;
+  clip-path: none;
+}
+
+body.enterprise-title-none .inline-title {
+  padding-bottom: 0;
+}
+
+body.enterprise-title-none .inline-title::after {
+  display: none;
+}
+
+.markdown-rendered h1,
+.markdown-rendered h2,
+.markdown-rendered h3,
+.markdown-rendered h4,
+.markdown-rendered h5,
+.cm-s-obsidian .HyperMD-header-1,
+.cm-s-obsidian .HyperMD-header-2,
+.cm-s-obsidian .HyperMD-header-3,
+.cm-s-obsidian .HyperMD-header-4,
+.cm-s-obsidian .HyperMD-header-5,
+.cm-s-obsidian .cm-header-1,
+.cm-s-obsidian .cm-header-2,
+.cm-s-obsidian .cm-header-3,
+.cm-s-obsidian .cm-header-4,
+.cm-s-obsidian .cm-header-5 {
+  font-family: var(--enterprise-font-display);
+  letter-spacing: var(--enterprise-title-tracking);
+}
+
+.markdown-rendered h6,
+.cm-s-obsidian .HyperMD-header-6,
+.cm-s-obsidian .cm-header-6 {
+  font-family: var(--enterprise-font-mono);
+  font-weight: var(--enterprise-hand-weight);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--enterprise-text-faint);
+}
+
+.markdown-rendered h2 {
+  padding-bottom: 0.32em;
+  border-bottom: var(--enterprise-h2-rule-thickness) solid var(--enterprise-h2-rule-color);
+}
+
+.cm-s-obsidian .HyperMD-header-2 {
+  box-shadow: inset 0 calc(-1 * var(--enterprise-h2-rule-thickness)) 0 var(--enterprise-h2-rule-color);
+  padding-bottom: 0.22em;
+}
+
+body.enterprise-disable-h2-rule .markdown-rendered h2 {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+body.enterprise-disable-h2-rule .cm-s-obsidian .HyperMD-header-2 {
+  box-shadow: none;
+  padding-bottom: 0;
+}
+
+strong,
+b,
+.cm-strong {
+  font-weight: var(--enterprise-bold-weight);
+}
+
+.markdown-rendered p {
+  margin-block: 0 var(--enterprise-paragraph-spacing);
+}
+
+.markdown-rendered,
+.cm-scroller {
+  line-height: var(--enterprise-body-line-height);
+}
