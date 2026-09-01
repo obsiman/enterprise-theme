@@ -1,0 +1,120 @@
+.callout {
+  border: var(--enterprise-callout-border-width) solid var(--enterprise-hairline);
+  border-radius: var(--enterprise-radius-style);
+  background: var(--enterprise-surface-secondary);
+  box-shadow: none;
+}
+
+.callout-title {
+  font-family: var(--enterprise-font-mono);
+  font-size: 0.78em;
+  font-weight: var(--enterprise-bold-weight);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.callout[data-callout="success"],
+.callout[data-callout="check"],
+.callout[data-callout="done"] {
+  --callout-color: var(--enterprise-success);
+}
+
+.callout[data-callout="warning"],
+.callout[data-callout="caution"],
+.callout[data-callout="attention"] {
+  --callout-color: var(--enterprise-warning);
+}
+
+.callout[data-callout="failure"],
+.callout[data-callout="danger"],
+.callout[data-callout="bug"],
+.callout[data-callout="error"] {
+  --callout-color: var(--enterprise-danger);
+}
+
+.markdown-rendered table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.markdown-rendered th,
+.markdown-rendered td {
+  min-height: var(--enterprise-table-row-height);
+  padding: var(--enterprise-space-2) var(--enterprise-space-3);
+  border-color: var(--enterprise-hairline);
+}
+
+.markdown-rendered th {
+  font-family: var(--enterprise-font-mono);
+  font-size: 0.82em;
+  font-weight: var(--enterprise-bold-weight);
+  letter-spacing: 0.035em;
+  text-align: start;
+}
+
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="password"],
+textarea,
+.dropdown {
+  border: var(--enterprise-divider-width) solid var(--enterprise-control-border);
+  border-radius: var(--enterprise-radius-style);
+  background: var(--enterprise-surface-secondary);
+  color: var(--enterprise-text-normal);
+}
+
+input:focus-visible,
+textarea:focus-visible,
+button:focus-visible,
+.clickable-icon:focus-visible {
+  outline: var(--enterprise-focus-ring-width) solid var(--enterprise-accent);
+  outline-offset: var(--enterprise-radius-micro);
+}
+
+button.mod-cta {
+  border-color: var(--enterprise-accent);
+  background: var(--enterprise-accent);
+  color: var(--enterprise-surface-primary);
+}
+
+button.mod-cta:hover {
+  border-color: var(--enterprise-accent-hover);
+  background: var(--enterprise-accent-hover);
+}
+
+input[type="checkbox"] {
+  border: var(--enterprise-divider-width) solid var(--enterprise-control-border);
+}
+
+input[type="checkbox"]:checked {
+  border-color: var(--enterprise-accent);
+  background-color: var(--enterprise-accent);
+}
+
+.tooltip {
+  border: var(--enterprise-divider-width) solid var(--enterprise-hairline);
+  border-radius: var(--enterprise-radius-style);
+  background: var(--enterprise-surface-overlay);
+  color: var(--enterprise-text-normal);
+  font-family: var(--enterprise-font-hand);
+  font-size: calc(var(--enterprise-hand-size) * 0.72);
+}
+
+.modal,
+.prompt,
+.popover {
+  border: var(--enterprise-divider-width) solid var(--enterprise-hairline);
+  box-shadow: var(--shadow-l);
+}
+
+.metadata-container {
+  border-top: var(--enterprise-divider-width) solid var(--enterprise-hairline);
+  border-bottom: var(--enterprise-divider-width) solid var(--enterprise-hairline);
+}
+
+.metadata-property-key {
+  font-family: var(--enterprise-font-mono);
+  color: var(--enterprise-text-faint);
+}
