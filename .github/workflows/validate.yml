@@ -6,7 +6,7 @@ on:
   pull_request:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   validate:
@@ -20,17 +20,30 @@ jobs:
         with:
           node-version: 24
 
-      - name: Build
+      - name: Build distribution
         run: npm run build
 
       - name: Validate generated theme
         run: npm run validate
-
-      - name: Verify generated file is committed
-        run: git diff --exit-code -- theme.css
 
       - name: Install lint dependencies
         run: npm install --ignore-scripts --no-audit --no-fund
 
       - name: Lint source CSS
         run: npm run lint
+
+      - name: Verify pull requests commit generated CSS
+        if: github.event_name == 'pull_request'
+        run: git diff --exit-code -- theme.css
+
+      - name: Keep generated CSS synchronized on main
+        if: github.event_name == 'push'
+        run: |
+          if git diff --quiet -- theme.css; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add theme.css
+          git commit -m "Build theme distribution"
+          git push
