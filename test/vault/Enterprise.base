@@ -1,0 +1,9 @@
+views:
+  - type: table
+    name: Verification table
+    filters:
+      and:
+        - file.hasTag("#enterprise")
+    order:
+      - file.name
+      - file.mtime

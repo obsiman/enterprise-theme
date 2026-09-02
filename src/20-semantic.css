@@ -1,71 +1,55 @@
-.theme-dark {
-  --enterprise-surface-primary: var(--enterprise-user-surface-primary);
-  --enterprise-surface-secondary: var(--enterprise-user-surface-secondary);
-  --enterprise-surface-tertiary: var(--enterprise-user-surface-tertiary);
-  --enterprise-surface-deep: var(--enterprise-dark-surface-deep);
-  --enterprise-surface-overlay: var(--enterprise-dark-surface-overlay);
-  --enterprise-text-normal: var(--enterprise-user-text-normal);
-  --enterprise-text-muted: var(--enterprise-user-text-muted);
-  --enterprise-text-faint: var(--enterprise-user-text-faint);
-  --enterprise-text-heading-secondary: var(--enterprise-dark-text-heading-secondary);
-  --enterprise-accent: var(--enterprise-user-accent);
-  --enterprise-accent-hover: var(--enterprise-user-accent-hover);
-  --enterprise-accent-soft: var(--enterprise-dark-accent-soft);
-  --enterprise-accent-strong: var(--enterprise-dark-accent-strong);
-  --enterprise-hairline: var(--enterprise-border-color);
-  --enterprise-control-border: var(--enterprise-control-border-color);
-  --enterprise-hover: var(--enterprise-dark-hover);
-  --enterprise-shadow-color: var(--enterprise-dark-shadow);
-  --enterprise-success: var(--enterprise-user-success);
-  --enterprise-warning: var(--enterprise-user-warning);
-  --enterprise-danger: var(--enterprise-user-danger);
-  --enterprise-highlight: var(--enterprise-selection);
-}
-
+.theme-dark,
 .theme-light {
   --enterprise-surface-primary: var(--enterprise-user-surface-primary);
   --enterprise-surface-secondary: var(--enterprise-user-surface-secondary);
   --enterprise-surface-tertiary: var(--enterprise-user-surface-tertiary);
-  --enterprise-surface-deep: var(--enterprise-light-surface-deep);
-  --enterprise-surface-overlay: var(--enterprise-light-surface-overlay);
+  --enterprise-surface-deep: var(--enterprise-user-surface-deep);
+  --enterprise-surface-overlay: var(--enterprise-user-surface-overlay);
   --enterprise-text-normal: var(--enterprise-user-text-normal);
   --enterprise-text-muted: var(--enterprise-user-text-muted);
   --enterprise-text-faint: var(--enterprise-user-text-faint);
-  --enterprise-text-heading-secondary: var(--enterprise-light-text-heading-secondary);
+  --enterprise-text-heading-secondary: var(--enterprise-user-text-heading-secondary);
+  --enterprise-marker: var(--enterprise-user-marker);
+  --enterprise-marker-hover: var(--enterprise-user-marker-hover);
+  --enterprise-title-decoration-color: var(--enterprise-marker);
   --enterprise-accent: var(--enterprise-user-accent);
   --enterprise-accent-hover: var(--enterprise-user-accent-hover);
-  --enterprise-accent-soft: var(--enterprise-light-accent-soft);
-  --enterprise-accent-strong: var(--enterprise-light-accent-strong);
-  --enterprise-hairline: var(--enterprise-border-color);
-  --enterprise-control-border: var(--enterprise-control-border-color);
-  --enterprise-hover: var(--enterprise-light-hover);
-  --enterprise-shadow-color: var(--enterprise-light-shadow);
+  --enterprise-on-accent: var(--enterprise-user-on-accent);
+  --enterprise-highlight-color: var(--enterprise-user-selection);
   --enterprise-success: var(--enterprise-user-success);
   --enterprise-warning: var(--enterprise-user-warning);
   --enterprise-danger: var(--enterprise-user-danger);
-  --enterprise-highlight: var(--enterprise-selection);
+  --enterprise-color-red: var(--enterprise-user-color-red);
+  --enterprise-color-orange: var(--enterprise-user-color-orange);
+  --enterprise-color-yellow: var(--enterprise-user-color-yellow);
+  --enterprise-color-green: var(--enterprise-user-color-green);
+  --enterprise-color-cyan: var(--enterprise-user-color-cyan);
+  --enterprise-color-blue: var(--enterprise-user-color-blue);
+  --enterprise-color-purple: var(--enterprise-user-color-purple);
+  --enterprise-color-pink: var(--enterprise-user-color-pink);
+  --enterprise-accent-soft: color-mix(in oklch, var(--enterprise-accent) 14%, transparent);
+  --enterprise-accent-strong: color-mix(in oklch, var(--enterprise-accent) 24%, transparent);
+  --enterprise-highlight: color-mix(in oklch, var(--enterprise-highlight-color) calc(var(--enterprise-highlight-opacity) * 100%), transparent);
+  --enterprise-hover: color-mix(in oklch, var(--enterprise-text-normal) 8%, transparent);
+  --enterprise-error-background: color-mix(in oklch, var(--enterprise-danger) 16%, transparent);
+  --enterprise-error-background-hover: color-mix(in oklch, var(--enterprise-danger) 24%, transparent);
+  --enterprise-success-background: color-mix(in oklch, var(--enterprise-success) 16%, transparent);
+  --enterprise-message-background: color-mix(in oklch, var(--enterprise-surface-overlay) 92%, var(--enterprise-text-normal));
+  --enterprise-shadow-color: color-mix(in oklch, var(--enterprise-shadow-base) calc(var(--enterprise-shadow-strength) * 100%), transparent);
+  --enterprise-on-accent-inverted: var(--enterprise-text-normal);
+  --enterprise-caret-color: var(--enterprise-accent);
+  --enterprise-hairline: var(--enterprise-border-color);
+  --enterprise-control-border: var(--enterprise-control-border-color);
 }
 
-/* Presets change primitive intent, not component rules. Style Settings variables use
-   higher-specificity body.theme-*.css-settings-manager selectors and remain the final override. */
-body.enterprise-preset-neutral.theme-dark {
-  --enterprise-dark-accent: var(--enterprise-dark-text-muted);
-  --enterprise-dark-accent-hover: var(--enterprise-dark-text-normal);
+.theme-dark {
+  --enterprise-shadow-base: var(--enterprise-dark-shadow-base);
+  --enterprise-mono-0: var(--enterprise-dark-mono-0);
+  --enterprise-mono-100: var(--enterprise-dark-mono-100);
 }
 
-body.enterprise-preset-neutral.theme-light {
-  --enterprise-light-accent: var(--enterprise-light-text-muted);
-  --enterprise-light-accent-hover: var(--enterprise-light-text-normal);
-}
-
-body.enterprise-preset-high-contrast.theme-dark {
-  --enterprise-dark-surface-secondary: var(--enterprise-dark-surface-deep);
-  --enterprise-dark-text-muted: var(--enterprise-dark-text-normal);
-  --enterprise-dark-hairline: var(--enterprise-dark-control-border);
-}
-
-body.enterprise-preset-high-contrast.theme-light {
-  --enterprise-light-surface-secondary: var(--enterprise-light-surface-primary);
-  --enterprise-light-text-muted: var(--enterprise-light-text-normal);
-  --enterprise-light-hairline: var(--enterprise-light-control-border);
+.theme-light {
+  --enterprise-shadow-base: var(--enterprise-light-shadow-base);
+  --enterprise-mono-0: var(--enterprise-light-mono-0);
+  --enterprise-mono-100: var(--enterprise-light-mono-100);
 }

@@ -1,16 +1,28 @@
 {
   "name": "obsidian-enterprise-theme",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "scripts": {
     "build": "node build.mjs",
-    "validate": "node scripts/validate.mjs",
+    "validate": "npm run validate:manifest && npm run validate:build && npm run validate:style-settings && npm run validate:tokens && npm run validate:contrast && npm run validate:current-obsidian",
+    "validate:manifest": "node scripts/validate-manifest.mjs",
+    "validate:build": "node scripts/validate-build.mjs",
+    "validate:style-settings": "node scripts/validate-style-settings.mjs",
+    "validate:tokens": "node scripts/validate-tokens.mjs",
+    "validate:contrast": "node scripts/validate-contrast.mjs",
+    "validate:current-obsidian": "node scripts/validate-current-obsidian.mjs",
     "check": "npm run build && npm run validate",
+    "test": "npm run build && npm run validate && npm run lint",
     "lint": "stylelint \"src/**/*.css\" \"theme.css\""
   },
   "devDependencies": {
     "stylelint": "^17.0.0",
-    "stylelint-config-obsidianmd": "^0.1.0"
+    "stylelint-config-obsidianmd": "^0.1.0",
+    "yaml": "^2.8.1"
+  },
+  "engines": {
+    "node": ">=24 <25",
+    "npm": ">=11"
   }
 }

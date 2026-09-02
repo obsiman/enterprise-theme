@@ -1,5 +1,12 @@
+/* Foundations and semantic surfaces. Obsidian 1.13 derives these from its
+   OKLCH base system; Enterprise supplies a warm paper / graphite ramp. */
 .theme-dark,
 .theme-light {
+  --color-accent: var(--enterprise-accent);
+  --color-accent-1: var(--enterprise-accent-hover);
+  --color-accent-2: color-mix(in oklch, var(--enterprise-accent-hover) 82%, var(--enterprise-text-normal));
+  --mono-0: var(--enterprise-mono-0);
+  --mono-100: var(--enterprise-mono-100);
   --background-primary: var(--enterprise-surface-primary);
   --background-primary-alt: var(--enterprise-surface-secondary);
   --background-secondary: var(--enterprise-surface-deep);
@@ -9,12 +16,16 @@
   --background-modifier-border: var(--enterprise-hairline);
   --background-modifier-border-hover: var(--enterprise-control-border);
   --background-modifier-border-focus: var(--enterprise-accent);
+  --background-modifier-error: var(--enterprise-error-background);
+  --background-modifier-error-hover: var(--enterprise-error-background-hover);
+  --background-modifier-success: var(--enterprise-success-background);
+  --background-modifier-message: var(--enterprise-message-background);
   --background-modifier-form-field: var(--enterprise-surface-secondary);
-  --background-modifier-message: var(--enterprise-surface-overlay);
-
   --text-normal: var(--enterprise-text-normal);
   --text-muted: var(--enterprise-text-muted);
   --text-faint: var(--enterprise-text-faint);
+  --text-on-accent: var(--enterprise-on-accent);
+  --text-on-accent-inverted: var(--enterprise-on-accent-inverted);
   --text-accent: var(--enterprise-link-color);
   --text-accent-hover: var(--enterprise-link-hover-color);
   --text-error: var(--enterprise-danger);
@@ -22,13 +33,12 @@
   --text-success: var(--enterprise-success);
   --text-selection: var(--enterprise-highlight);
   --text-highlight-bg: var(--enterprise-highlight);
-
+  --caret-color: var(--enterprise-caret-color);
   --interactive-normal: var(--enterprise-surface-tertiary);
   --interactive-hover: var(--enterprise-surface-overlay);
-  --interactive-accent: var(--enterprise-accent);
-  --interactive-accent-hover: var(--enterprise-accent-hover);
-
-  --font-interface-theme: var(--enterprise-font-body);
+  --interactive-accent: var(--color-accent);
+  --interactive-accent-hover: var(--color-accent-1);
+  --font-interface-theme: var(--enterprise-font-interface);
   --font-text-theme: var(--enterprise-font-body);
   --font-monospace-theme: var(--enterprise-font-mono);
   --font-text-size: var(--enterprise-body-size);
@@ -36,40 +46,52 @@
   --bold-weight: var(--enterprise-bold-weight);
   --bold-color: var(--enterprise-text-normal);
   --file-line-width: var(--enterprise-reading-width);
-
+  --file-margins: 0 var(--enterprise-content-padding-safe);
+  --file-margins-inline: var(--enterprise-content-padding-safe);
   --heading-spacing: var(--enterprise-heading-spacing);
+  --p-spacing: var(--enterprise-paragraph-spacing);
+  --list-spacing: var(--enterprise-list-spacing);
   --h1-font: var(--enterprise-font-display);
   --h2-font: var(--enterprise-font-display);
   --h3-font: var(--enterprise-font-display);
   --h4-font: var(--enterprise-font-display);
   --h5-font: var(--enterprise-font-display);
   --h6-font: var(--enterprise-font-mono);
-  --h1-weight: var(--enterprise-bold-weight);
-  --h2-weight: var(--enterprise-bold-weight);
-  --h3-weight: var(--enterprise-bold-weight);
-  --h4-weight: var(--enterprise-bold-weight);
-  --h5-weight: var(--enterprise-bold-weight);
-  --h6-weight: var(--enterprise-hand-weight);
+  --h1-size: var(--enterprise-h1-size);
+  --h2-size: var(--enterprise-h2-size);
+  --h3-size: var(--enterprise-h3-size);
+  --h4-size: var(--enterprise-h4-size);
+  --h5-size: var(--enterprise-h5-size);
+  --h6-size: var(--enterprise-h6-size);
+  --h1-weight: var(--enterprise-h1-weight);
+  --h2-weight: var(--enterprise-h2-weight);
+  --h3-weight: var(--enterprise-h3-weight);
+  --h4-weight: var(--enterprise-h4-weight);
+  --h5-weight: var(--enterprise-h5-weight);
+  --h6-weight: var(--enterprise-h6-weight);
+  --h1-line-height: var(--enterprise-h1-line-height);
+  --h2-line-height: var(--enterprise-h2-line-height);
+  --h3-line-height: var(--enterprise-h3-line-height);
+  --h4-line-height: var(--enterprise-h4-line-height);
+  --h5-line-height: var(--enterprise-h5-line-height);
+  --h6-line-height: var(--enterprise-h6-line-height);
   --h1-color: var(--enterprise-text-normal);
   --h2-color: var(--enterprise-text-normal);
   --h3-color: var(--enterprise-text-normal);
   --h4-color: var(--enterprise-text-heading-secondary);
   --h5-color: var(--enterprise-text-heading-secondary);
   --h6-color: var(--enterprise-text-faint);
-
   --inline-title-font: var(--enterprise-font-display);
   --inline-title-size: var(--enterprise-title-size);
   --inline-title-weight: var(--enterprise-title-weight);
   --inline-title-color: var(--enterprise-text-normal);
-
   --link-color: var(--enterprise-link-color);
   --link-color-hover: var(--enterprise-link-hover-color);
   --link-external-color: var(--enterprise-link-color);
   --link-external-color-hover: var(--enterprise-link-hover-color);
   --link-unresolved-color: var(--enterprise-text-faint);
-
   --blockquote-border-color: var(--enterprise-control-border);
-  --blockquote-color: var(--enterprise-text-muted);
+  --blockquote-color: var(--enterprise-hand-color);
   --code-background: var(--enterprise-surface-secondary);
   --code-normal: var(--enterprise-text-muted);
   --code-comment: var(--enterprise-text-faint);
@@ -81,62 +103,54 @@
   --code-string: var(--enterprise-success);
   --code-tag: var(--enterprise-danger);
   --code-value: var(--enterprise-warning);
-
   --table-background: transparent;
   --table-border-color: var(--enterprise-hairline);
   --table-header-background: var(--enterprise-surface-secondary);
   --table-header-background-hover: var(--enterprise-surface-tertiary);
   --table-row-background-hover: var(--enterprise-hover);
+  --table-row-background-selected: var(--enterprise-accent-strong);
   --table-text-color: var(--enterprise-text-normal);
-
+  --table-cell-padding: var(--enterprise-table-cell-padding);
   --checkbox-color: var(--enterprise-accent);
   --checkbox-color-hover: var(--enterprise-accent-hover);
   --checkbox-border-color: var(--enterprise-control-border);
   --checkbox-border-color-hover: var(--enterprise-accent);
-
-  --tag-color: var(--enterprise-link-color);
-  --tag-color-hover: var(--enterprise-link-hover-color);
+  --tag-color: var(--enterprise-hand-color);
+  --tag-color-hover: var(--enterprise-marker-hover);
   --tag-background: transparent;
   --tag-background-hover: var(--enterprise-accent-soft);
   --tag-border-color: transparent;
   --tag-border-color-hover: transparent;
-
   --hr-color: var(--enterprise-hairline);
   --embed-border-left: var(--enterprise-divider-width) solid var(--enterprise-control-border);
   --embed-background: transparent;
-
   --nav-item-color: var(--enterprise-text-muted);
   --nav-item-color-hover: var(--enterprise-text-normal);
   --nav-item-color-active: var(--enterprise-text-normal);
   --nav-item-background-hover: var(--enterprise-hover);
   --nav-item-background-active: var(--enterprise-accent-soft);
   --nav-indentation-guide-color: var(--enterprise-hairline);
-
   --tab-background-active: var(--enterprise-surface-primary);
   --tab-text-color: var(--enterprise-text-faint);
   --tab-text-color-active: var(--enterprise-text-normal);
   --tab-container-background: var(--enterprise-surface-deep);
   --tab-divider-color: var(--enterprise-hairline);
   --tab-outline-color: var(--enterprise-hairline);
-
   --ribbon-background: var(--enterprise-surface-deep);
   --status-bar-background: var(--enterprise-surface-deep);
   --status-bar-border-color: var(--enterprise-hairline);
-  --status-bar-text-color: var(--enterprise-text-faint);
+  --status-bar-text-color: var(--enterprise-hand-color);
   --titlebar-background: var(--enterprise-surface-deep);
   --titlebar-background-focused: var(--enterprise-surface-deep);
   --titlebar-text-color: var(--enterprise-text-faint);
   --titlebar-text-color-focused: var(--enterprise-text-muted);
-
   --divider-color: var(--enterprise-hairline);
   --divider-color-hover: var(--enterprise-accent);
   --divider-width: var(--enterprise-divider-width);
-
   --modal-background: var(--enterprise-surface-secondary);
   --modal-border-color: var(--enterprise-hairline);
   --modal-radius: var(--enterprise-radius-floating);
   --prompt-border-color: var(--enterprise-hairline);
-
   --metadata-background: transparent;
   --metadata-divider-color: var(--enterprise-hairline);
   --metadata-divider-color-hover: var(--enterprise-control-border);
@@ -147,11 +161,10 @@
   --metadata-label-text-color: var(--enterprise-text-faint);
   --metadata-label-text-color-hover: var(--enterprise-text-muted);
   --metadata-label-font: var(--enterprise-font-mono);
-
+  --metadata-row-height: var(--enterprise-property-row-height);
   --scrollbar-bg: transparent;
   --scrollbar-thumb-bg: var(--enterprise-control-border);
   --scrollbar-active-thumb-bg: var(--enterprise-text-faint);
-
   --radius-s: var(--enterprise-radius-style);
   --radius-m: var(--enterprise-radius-card);
   --radius-l: var(--enterprise-radius-floating);
@@ -161,21 +174,76 @@
   --toggle-radius: var(--enterprise-radius-pill);
   --toggle-thumb-radius: var(--enterprise-radius-pill);
   --slider-thumb-radius: var(--enterprise-radius-pill);
-  --toggle-thumb-color: var(--enterprise-knob);
-
+  --toggle-thumb-color: var(--enterprise-on-accent);
   --shadow-s: 0 0 0 var(--enterprise-divider-width) var(--enterprise-hairline);
   --shadow-l: 0 var(--enterprise-space-5) var(--enterprise-space-6) var(--enterprise-shadow-color);
-
   --icon-color: var(--enterprise-text-faint);
   --icon-color-hover: var(--enterprise-text-normal);
   --icon-color-active: var(--enterprise-accent);
-
   --canvas-background: var(--enterprise-surface-primary);
   --canvas-card-label-color: var(--enterprise-text-faint);
   --canvas-dot-pattern: var(--enterprise-hairline);
+  --canvas-card-background: var(--enterprise-surface-secondary);
+  --canvas-card-border-color: var(--enterprise-hairline);
   --graph-node: var(--enterprise-text-normal);
   --graph-text: var(--enterprise-text-muted);
   --graph-line: var(--enterprise-control-border);
   --graph-node-unresolved: var(--enterprise-text-faint);
   --graph-node-focused: var(--enterprise-accent);
+  --graph-node-tag: var(--enterprise-color-purple);
+  --graph-node-attachment: var(--enterprise-color-cyan);
+  --graph-node-color: var(--enterprise-color-blue);
+
+  /* Current Settings and form surfaces. */
+  --setting-items-background: var(--enterprise-surface-primary);
+  --setting-items-border-color: var(--enterprise-hairline);
+  --setting-group-heading-color: var(--enterprise-text-heading-secondary);
+  --setting-group-heading-border-color: var(--enterprise-hairline);
+  --input-shadow: none;
+}
+
+.theme-dark {
+  --color-base-00: #07080b;
+  --color-base-05: #0b0d10;
+  --color-base-10: #101216;
+  --color-base-20: #171a1e;
+  --color-base-25: #1c1f23;
+  --color-base-30: #23262a;
+  --color-base-35: #2b2e33;
+  --color-base-40: #3a3d42;
+  --color-base-50: #4b4e54;
+  --color-base-60: #666a70;
+  --color-base-70: #858a91;
+  --color-base-100: #f6f3ec;
+  --color-red: var(--enterprise-color-red);
+  --color-orange: var(--enterprise-color-orange);
+  --color-yellow: var(--enterprise-color-yellow);
+  --color-green: var(--enterprise-color-green);
+  --color-cyan: var(--enterprise-color-cyan);
+  --color-blue: var(--enterprise-color-blue);
+  --color-purple: var(--enterprise-color-purple);
+  --color-pink: var(--enterprise-color-pink);
+}
+
+.theme-light {
+  --color-base-00: #fffdf7;
+  --color-base-05: #fbf8f0;
+  --color-base-10: #f6f3ec;
+  --color-base-20: #f1ede2;
+  --color-base-25: #ede9df;
+  --color-base-30: #e4dfd4;
+  --color-base-35: #d8d1c4;
+  --color-base-40: #c2b9aa;
+  --color-base-50: #a19788;
+  --color-base-60: #786f63;
+  --color-base-70: #5f594f;
+  --color-base-100: #171a20;
+  --color-red: var(--enterprise-color-red);
+  --color-orange: var(--enterprise-color-orange);
+  --color-yellow: var(--enterprise-color-yellow);
+  --color-green: var(--enterprise-color-green);
+  --color-cyan: var(--enterprise-color-cyan);
+  --color-blue: var(--enterprise-color-blue);
+  --color-purple: var(--enterprise-color-purple);
+  --color-pink: var(--enterprise-color-pink);
 }

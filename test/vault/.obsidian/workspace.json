@@ -1,0 +1,15 @@
+{
+  "main": {
+    "id": "main",
+    "type": "split",
+    "children": [
+      {"id":"leaf1","type":"leaf","state":{"type":"markdown","state":{"file":"Core Surfaces.md","mode":"source"}}}
+    ],
+    "direction": "vertical"
+  },
+  "left": {"id":"left","type":"split","children":[],"direction":"horizontal"},
+  "right": {"id":"right","type":"split","children":[],"direction":"horizontal"},
+  "left-ribbon": {"hidden": false},
+  "active": "leaf1",
+  "lastOpenFiles": ["Core Surfaces.md"]
+}

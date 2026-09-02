@@ -25,7 +25,7 @@ The four replaceable roles are:
 - **Monospace:** Spline Sans Mono first, then platform monospace fallbacks.
 - **Handwriting:** Caveat first, then locally available handwriting fallbacks.
 
-The theme does **not** bundle or fetch fonts. This keeps the theme offline, avoids hidden network requests, and avoids redistributing third-party font binaries. Install the preferred families locally or replace each role through Style Settings.
+The theme bundles official latin WOFF2 distributions of the four preferred font families and embeds them into generated `theme.css`. This keeps the two-file theme package offline and self-contained while retaining replaceable Style Settings font roles. See `docs/FONTS.md` and `THIRD-PARTY-NOTICES.md` for provenance and licensing.
 
 ## Page title and headings
 

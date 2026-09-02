@@ -1,0 +1,4 @@
+Copyright 2022 The Spline Sans Mono Project Authors (https://github.com/SorkinType/SplineSansMono)
+
+Font Software License: SIL Open Font License 1.1.
+The complete license is included in OFL-1.1.txt.

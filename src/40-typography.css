@@ -3,6 +3,16 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.markdown-rendered,
+.cm-scroller {
+  line-height: var(--enterprise-body-line-height);
+}
+
+.markdown-preview-view,
+.markdown-source-view.mod-cm6 .cm-scroller {
+  padding-inline: var(--file-margins-inline);
+}
+
 .markdown-source-view,
 .markdown-preview-view {
   font-size: var(--enterprise-body-size);
@@ -23,31 +33,37 @@ body {
 .inline-title::after {
   content: "";
   display: block;
-  width: min(var(--enterprise-title-stroke-width), calc(100vw - (2 * var(--enterprise-content-padding))));
+  width: min(var(--enterprise-title-stroke-width), calc(100vw - (2 * var(--enterprise-content-padding-safe))));
   height: var(--enterprise-title-stroke-height);
   margin-top: var(--enterprise-title-stroke-gap);
-  border-radius: var(--enterprise-radius-pill);
+  border-radius: 54% 46% 49% 51% / 48% 55% 45% 52%;
   background: var(--enterprise-title-decoration-color);
   opacity: var(--enterprise-title-stroke-opacity);
-  transform: rotate(-0.45deg) skewX(-7deg);
+  transform: rotate(var(--enterprise-title-stroke-rotation)) skewX(-2deg);
   transform-origin: left center;
-  clip-path: polygon(0 38%, 9% 24%, 24% 31%, 39% 17%, 56% 27%, 72% 12%, 88% 24%, 100% 8%, 99% 66%, 87% 81%, 71% 72%, 54% 87%, 37% 77%, 19% 91%, 0 78%);
 }
 
+.inline-title:hover::after {
+  background: var(--enterprise-marker-hover);
+}
+
+/* stylelint-disable no-descending-specificity -- user-selected title classes intentionally override the base marker. */
 body.enterprise-title-rule .inline-title::after {
   height: var(--enterprise-h2-rule-thickness);
   border-radius: 0;
   transform: none;
-  clip-path: none;
 }
 
-body.enterprise-title-none .inline-title {
+body.enterprise-title-none .inline-title,
+.enterprise-no-title-stroke .inline-title {
   padding-bottom: 0;
 }
 
-body.enterprise-title-none .inline-title::after {
+body.enterprise-title-none .inline-title::after,
+.enterprise-no-title-stroke .inline-title::after {
   display: none;
 }
+/* stylelint-enable no-descending-specificity */
 
 .markdown-rendered h1,
 .markdown-rendered h2,
@@ -65,27 +81,69 @@ body.enterprise-title-none .inline-title::after {
 .cm-s-obsidian .cm-header-4,
 .cm-s-obsidian .cm-header-5 {
   font-family: var(--enterprise-font-display);
-  letter-spacing: var(--enterprise-title-tracking);
+  letter-spacing: var(--enterprise-heading-tracking);
+}
+
+.markdown-rendered h1,
+.cm-s-obsidian .HyperMD-header-1,
+.cm-s-obsidian .cm-header-1 {
+  font-size: var(--enterprise-h1-size);
+  font-weight: var(--enterprise-h1-weight);
+  line-height: var(--enterprise-h1-line-height);
+}
+
+.markdown-rendered h2,
+.cm-s-obsidian .HyperMD-header-2,
+.cm-s-obsidian .cm-header-2 {
+  font-size: var(--enterprise-h2-size);
+  font-weight: var(--enterprise-h2-weight);
+  line-height: var(--enterprise-h2-line-height);
+}
+
+.markdown-rendered h3,
+.cm-s-obsidian .HyperMD-header-3,
+.cm-s-obsidian .cm-header-3 {
+  font-size: var(--enterprise-h3-size);
+  font-weight: var(--enterprise-h3-weight);
+  line-height: var(--enterprise-h3-line-height);
+}
+
+.markdown-rendered h4,
+.cm-s-obsidian .HyperMD-header-4,
+.cm-s-obsidian .cm-header-4 {
+  font-size: var(--enterprise-h4-size);
+  font-weight: var(--enterprise-h4-weight);
+  line-height: var(--enterprise-h4-line-height);
+}
+
+.markdown-rendered h5,
+.cm-s-obsidian .HyperMD-header-5,
+.cm-s-obsidian .cm-header-5 {
+  font-size: var(--enterprise-h5-size);
+  font-weight: var(--enterprise-h5-weight);
+  line-height: var(--enterprise-h5-line-height);
 }
 
 .markdown-rendered h6,
 .cm-s-obsidian .HyperMD-header-6,
 .cm-s-obsidian .cm-header-6 {
   font-family: var(--enterprise-font-mono);
-  font-weight: var(--enterprise-hand-weight);
+  font-size: var(--enterprise-h6-size);
+  font-weight: var(--enterprise-h6-weight);
+  line-height: var(--enterprise-h6-line-height);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--enterprise-text-faint);
 }
 
 .markdown-rendered h2 {
-  padding-bottom: 0.32em;
+  padding-bottom: var(--enterprise-h2-rule-spacing);
   border-bottom: var(--enterprise-h2-rule-thickness) solid var(--enterprise-h2-rule-color);
 }
 
 .cm-s-obsidian .HyperMD-header-2 {
+  padding-bottom: calc(var(--enterprise-h2-rule-spacing) * 0.5);
   box-shadow: inset 0 calc(-1 * var(--enterprise-h2-rule-thickness)) 0 var(--enterprise-h2-rule-color);
-  padding-bottom: 0.22em;
 }
 
 body.enterprise-disable-h2-rule .markdown-rendered h2 {
@@ -108,7 +166,7 @@ b,
   margin-block: 0 var(--enterprise-paragraph-spacing);
 }
 
-.markdown-rendered,
-.cm-scroller {
-  line-height: var(--enterprise-body-line-height);
+::selection {
+  background: var(--enterprise-highlight);
+  color: var(--enterprise-text-normal);
 }

@@ -1,11 +1,13 @@
 .callout {
-  border: var(--enterprise-callout-border-width) solid var(--enterprise-hairline);
-  border-radius: var(--enterprise-radius-style);
+  border: var(--enterprise-callout-border-width) solid var(--callout-color, var(--enterprise-hairline));
+  border-radius: var(--enterprise-radius-card);
   background: var(--enterprise-surface-secondary);
   box-shadow: none;
+  padding: var(--enterprise-callout-padding);
 }
 
 .callout-title {
+  padding-inline-start: var(--enterprise-space-3);
   font-family: var(--enterprise-font-mono);
   font-size: 0.78em;
   font-weight: var(--enterprise-bold-weight);
@@ -13,7 +15,14 @@
   text-transform: uppercase;
 }
 
+.callout[data-callout="info"],
+.callout[data-callout="note"] {
+  --callout-color: var(--enterprise-color-blue);
+}
+
+.callout[data-callout="tip"],
 .callout[data-callout="success"],
+.callout[data-callout="abstract"],
 .callout[data-callout="check"],
 .callout[data-callout="done"] {
   --callout-color: var(--enterprise-success);
@@ -21,31 +30,65 @@
 
 .callout[data-callout="warning"],
 .callout[data-callout="caution"],
-.callout[data-callout="attention"] {
+.callout[data-callout="attention"],
+.callout[data-callout="question"],
+.callout[data-callout="help"],
+.callout[data-callout="faq"] {
   --callout-color: var(--enterprise-warning);
 }
 
 .callout[data-callout="failure"],
+.callout[data-callout="fail"],
 .callout[data-callout="danger"],
 .callout[data-callout="bug"],
-.callout[data-callout="error"] {
+.callout[data-callout="error"],
+.callout[data-callout="missing"] {
   --callout-color: var(--enterprise-danger);
 }
 
-.markdown-rendered table {
+.callout[data-callout="quote"],
+.callout[data-callout="cite"],
+.callout[data-callout="example"] {
+  --callout-color: var(--enterprise-color-purple);
+}
+
+.callout[data-callout="todo"],
+.callout[data-callout="pin"] {
+  --callout-color: var(--enterprise-accent);
+}
+
+.markdown-rendered table,
+.cm-table-widget table {
   width: 100%;
   border-collapse: collapse;
   font-variant-numeric: tabular-nums;
 }
 
-.markdown-rendered th,
-.markdown-rendered td {
-  min-height: var(--enterprise-table-row-height);
-  padding: var(--enterprise-space-2) var(--enterprise-space-3);
-  border-color: var(--enterprise-hairline);
+.markdown-rendered tbody tr,
+.markdown-rendered thead tr,
+.cm-table-widget tbody tr,
+.cm-table-widget thead tr {
+  height: var(--enterprise-table-row-height);
 }
 
-.markdown-rendered th {
+.markdown-rendered th,
+.markdown-rendered td,
+.cm-table-widget th,
+.cm-table-widget td {
+  height: var(--enterprise-table-row-height);
+  padding: var(--enterprise-space-2) var(--enterprise-table-cell-padding);
+  border-color: var(--enterprise-hairline);
+  color: var(--enterprise-text-normal);
+}
+
+.markdown-rendered tr:hover td,
+.cm-table-widget tr:hover td {
+  background: var(--table-row-background-hover);
+}
+
+.markdown-rendered th,
+.cm-table-widget th {
+  background: var(--table-header-background);
   font-family: var(--enterprise-font-mono);
   font-size: 0.82em;
   font-weight: var(--enterprise-bold-weight);
@@ -53,11 +96,20 @@
   text-align: start;
 }
 
+.markdown-rendered td[align="right"],
+.markdown-rendered th[align="right"] {
+  text-align: end;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- form defaults intentionally precede the note-specific task control. */
 input[type="text"],
 input[type="search"],
 input[type="email"],
 input[type="password"],
+input[type="number"],
+input[type="date"],
 textarea,
+select,
 .dropdown {
   border: var(--enterprise-divider-width) solid var(--enterprise-control-border);
   border-radius: var(--enterprise-radius-style);
@@ -67,8 +119,11 @@ textarea,
 
 input:focus-visible,
 textarea:focus-visible,
+select:focus-visible,
 button:focus-visible,
-.clickable-icon:focus-visible {
+.clickable-icon:focus-visible,
+[role="button"]:focus-visible,
+[role="textbox"]:focus-visible {
   outline: var(--enterprise-focus-ring-width) solid var(--enterprise-accent);
   outline-offset: var(--enterprise-radius-micro);
 }
@@ -76,15 +131,18 @@ button:focus-visible,
 button.mod-cta {
   border-color: var(--enterprise-accent);
   background: var(--enterprise-accent);
-  color: var(--enterprise-surface-primary);
+  color: var(--enterprise-on-accent);
 }
 
 button.mod-cta:hover {
   border-color: var(--enterprise-accent-hover);
   background: var(--enterprise-accent-hover);
+  color: var(--enterprise-on-accent);
 }
 
+/* stylelint-disable-next-line no-descending-specificity -- the core checkbox baseline follows the note-specific accent rule. */
 input[type="checkbox"] {
+  accent-color: var(--enterprise-accent);
   border: var(--enterprise-divider-width) solid var(--enterprise-control-border);
 }
 
@@ -97,15 +155,24 @@ input[type="checkbox"]:checked {
   border: var(--enterprise-divider-width) solid var(--enterprise-hairline);
   border-radius: var(--enterprise-radius-style);
   background: var(--enterprise-surface-overlay);
-  color: var(--enterprise-text-normal);
+  color: var(--enterprise-hand-color);
   font-family: var(--enterprise-font-hand);
   font-size: calc(var(--enterprise-hand-size) * 0.72);
 }
 
+body.enterprise-disable-handwriting .tooltip {
+  color: var(--enterprise-text-normal);
+  font-family: var(--enterprise-font-interface);
+  font-size: var(--enterprise-interface-font-size);
+}
+
 .modal,
 .prompt,
-.popover {
+.popover,
+.suggestion-container {
   border: var(--enterprise-divider-width) solid var(--enterprise-hairline);
+  border-radius: var(--enterprise-radius-floating);
+  background: var(--enterprise-surface-overlay);
   box-shadow: var(--shadow-l);
 }
 
@@ -115,6 +182,19 @@ input[type="checkbox"]:checked {
 }
 
 .metadata-property-key {
+  min-height: var(--enterprise-property-row-height);
   font-family: var(--enterprise-font-mono);
   color: var(--enterprise-text-faint);
+}
+
+.metadata-property-value,
+.metadata-property-value input,
+.metadata-property-value textarea {
+  min-height: var(--enterprise-property-row-height);
+}
+
+.empty-state {
+  color: var(--enterprise-hand-color);
+  font-family: var(--enterprise-font-hand);
+  font-size: var(--enterprise-hand-size);
 }

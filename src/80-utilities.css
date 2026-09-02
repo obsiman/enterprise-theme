@@ -1,12 +1,58 @@
-/* Note utility classes. Add them through frontmatter: cssclasses: [enterprise-hand]. */
+/* Note utility classes are added through frontmatter cssclasses. */
 .enterprise-hand.markdown-preview-view,
 .enterprise-hand .markdown-preview-view,
 .enterprise-hand.markdown-source-view,
-.enterprise-hand .markdown-source-view {
+.enterprise-hand .markdown-source-view,
+.enterprise-hand .markdown-rendered,
+.enterprise-hand .cm-content {
+  color: var(--enterprise-hand-color);
   font-family: var(--enterprise-font-hand);
   font-size: var(--enterprise-hand-size);
   font-weight: var(--enterprise-hand-weight);
   line-height: 1.45;
+}
+
+/* stylelint-disable no-descending-specificity -- note utility classes must win over global title and heading defaults. */
+.enterprise-hand .inline-title,
+.enterprise-hand .markdown-rendered h1,
+.enterprise-hand .markdown-rendered h2,
+.enterprise-hand .markdown-rendered h3,
+.enterprise-hand .markdown-rendered h4,
+.enterprise-hand .markdown-rendered h5,
+.enterprise-hand .markdown-rendered h6,
+.enterprise-hand .cm-header-1,
+.enterprise-hand .cm-header-2,
+.enterprise-hand .cm-header-3,
+.enterprise-hand .cm-header-4,
+.enterprise-hand .cm-header-5,
+.enterprise-hand .cm-header-6,
+.enterprise-hand .HyperMD-header-1,
+.enterprise-hand .HyperMD-header-2,
+.enterprise-hand .HyperMD-header-3,
+.enterprise-hand .HyperMD-header-4,
+.enterprise-hand .HyperMD-header-5,
+.enterprise-hand .HyperMD-header-6 {
+  color: var(--enterprise-hand-color);
+  font-family: var(--enterprise-font-hand);
+  font-size: var(--enterprise-hand-size);
+  font-weight: var(--enterprise-hand-weight);
+  line-height: 1.45;
+  letter-spacing: normal;
+  text-transform: none;
+}
+/* stylelint-enable no-descending-specificity */
+
+/* Code remains technical under enterprise-hand by design. */
+.enterprise-hand .markdown-rendered code,
+.enterprise-hand .markdown-rendered pre,
+.enterprise-hand .markdown-rendered pre code,
+.enterprise-hand .cm-inline-code,
+.enterprise-hand .HyperMD-codeblock {
+  color: var(--code-normal);
+  font-family: var(--enterprise-font-mono);
+  font-size: 0.86em;
+  font-weight: 400;
+  line-height: var(--enterprise-body-line-height);
 }
 
 .enterprise-paper.markdown-preview-view,
@@ -34,12 +80,28 @@
 .enterprise-dense {
   --enterprise-paragraph-spacing: 0.7em;
   --enterprise-heading-spacing: 1.1em;
+  --enterprise-list-spacing: 0.12em;
+  --p-spacing: var(--enterprise-paragraph-spacing);
+  --heading-spacing: var(--enterprise-heading-spacing);
+  --list-spacing: var(--enterprise-list-spacing);
 }
 
-.enterprise-no-title-stroke .inline-title {
-  padding-bottom: 0;
+/* stylelint-disable no-descending-specificity -- class-select decoration options are explicit user overrides. */
+.enterprise-title-marker .inline-title::after {
+  display: block;
 }
 
+.enterprise-title-rule .inline-title::after {
+  display: block;
+}
+
+.enterprise-title-none .inline-title::after,
 .enterprise-no-title-stroke .inline-title::after {
   display: none;
 }
+
+.enterprise-title-none .inline-title,
+.enterprise-no-title-stroke .inline-title {
+  padding-bottom: 0;
+}
+/* stylelint-enable no-descending-specificity */

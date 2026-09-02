@@ -1,9 +1,12 @@
 .markdown-rendered a,
 .cm-s-obsidian span.cm-link,
 .cm-s-obsidian span.cm-hmd-internal-link,
-.cm-s-obsidian span.cm-url {
+.cm-s-obsidian span.cm-url,
+.cm-s-obsidian span.cm-underline {
   color: var(--enterprise-link-color);
+  /* stylelint-disable-next-line plugin/no-unsupported-browser-features -- Obsidian's Chromium runtime supports authored link decoration. */
   text-decoration-color: transparent;
+  /* stylelint-disable-next-line plugin/no-unsupported-browser-features -- Obsidian's Chromium runtime supports authored link decoration. */
   text-decoration-thickness: var(--enterprise-link-underline-thickness);
   text-underline-offset: 0.2em;
   transition:
@@ -14,19 +17,29 @@
 .markdown-rendered a:hover,
 .cm-s-obsidian span.cm-link:hover,
 .cm-s-obsidian span.cm-hmd-internal-link:hover,
-.cm-s-obsidian span.cm-url:hover {
+.cm-s-obsidian span.cm-url:hover,
+.cm-s-obsidian span.cm-underline:hover {
   color: var(--enterprise-link-hover-color);
+  /* stylelint-disable-next-line plugin/no-unsupported-browser-features -- Obsidian's Chromium runtime supports authored link decoration. */
   text-decoration: underline;
+  /* stylelint-disable-next-line plugin/no-unsupported-browser-features -- Obsidian's Chromium runtime supports authored link decoration. */
   text-decoration-color: var(--enterprise-link-hover-color);
 }
 
+.markdown-rendered a.internal-link.is-unresolved,
+.cm-s-obsidian span.cm-hmd-internal-link.is-unresolved {
+  color: var(--enterprise-text-faint);
+  /* stylelint-disable-next-line plugin/no-unsupported-browser-features -- Obsidian's Chromium runtime supports authored link decoration. */
+  text-decoration-style: dashed;
+}
+
 .markdown-rendered mark,
-.cm-highlight {
+.cm-highlight,
+.cm-formatting-highlight {
   color: inherit;
   background: var(--enterprise-highlight);
   border-radius: var(--enterprise-radius-micro);
   box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
 }
 
 .markdown-rendered blockquote,
@@ -35,7 +48,7 @@
   font-size: var(--enterprise-hand-size);
   font-weight: var(--enterprise-hand-weight);
   line-height: 1.35;
-  color: var(--enterprise-text-muted);
+  color: var(--enterprise-hand-color);
 }
 
 .markdown-rendered blockquote {
@@ -46,18 +59,20 @@
 
 .callout[data-callout="note"] .callout-content,
 .callout[data-callout="tip"] .callout-content,
-.callout[data-callout="quote"] .callout-content {
+.callout[data-callout="quote"] .callout-content,
+.callout[data-callout="abstract"] .callout-content {
   font-family: var(--enterprise-font-hand);
   font-size: calc(var(--enterprise-hand-size) * 0.96);
   font-weight: var(--enterprise-hand-weight);
   line-height: 1.4;
+  color: var(--enterprise-hand-color);
 }
 
 .cm-s-obsidian span.cm-comment {
   font-family: var(--enterprise-font-hand);
   font-size: calc(var(--enterprise-hand-size) * 0.9);
   font-weight: var(--enterprise-hand-weight);
-  color: var(--enterprise-text-faint);
+  color: var(--enterprise-hand-color);
 }
 
 .tag,
@@ -70,27 +85,39 @@
 
 body.enterprise-disable-handwriting .markdown-rendered blockquote,
 body.enterprise-disable-handwriting .cm-s-obsidian .HyperMD-quote,
-body.enterprise-disable-handwriting .callout[data-callout="note"] .callout-content,
-body.enterprise-disable-handwriting .callout[data-callout="tip"] .callout-content,
-body.enterprise-disable-handwriting .callout[data-callout="quote"] .callout-content,
+body.enterprise-disable-handwriting .callout .callout-content,
 body.enterprise-disable-handwriting .cm-s-obsidian span.cm-comment,
 body.enterprise-disable-handwriting .tag,
 body.enterprise-disable-handwriting .cm-hashtag {
   font-family: var(--enterprise-font-body);
   font-size: inherit;
   font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
 }
 
 .markdown-rendered code,
 .cm-inline-code {
   border: var(--enterprise-divider-width) solid var(--enterprise-hairline);
   border-radius: var(--enterprise-radius-micro);
+  background: var(--code-background);
+  color: var(--code-normal);
+  font-family: var(--enterprise-font-mono);
+}
+
+.markdown-rendered pre,
+.markdown-rendered pre code,
+.cm-s-obsidian .HyperMD-codeblock {
   font-family: var(--enterprise-font-mono);
 }
 
 .markdown-rendered pre {
+  margin-block: var(--enterprise-space-5);
+  padding: var(--enterprise-code-padding);
   border: var(--enterprise-divider-width) solid var(--enterprise-hairline);
-  border-radius: var(--enterprise-radius-style);
+  border-radius: var(--enterprise-code-radius);
+  background: var(--code-background);
+  overflow: auto;
 }
 
 .markdown-rendered hr {
@@ -103,6 +130,7 @@ body.enterprise-disable-handwriting .cm-hashtag {
 .file-embed {
   border-inline-start: var(--enterprise-divider-width) solid var(--enterprise-control-border);
   padding-inline-start: var(--enterprise-space-4);
+  background: var(--embed-background);
 }
 
 .markdown-rendered ul,
@@ -110,6 +138,32 @@ body.enterprise-disable-handwriting .cm-hashtag {
   padding-inline-start: calc(var(--enterprise-space-5) + var(--enterprise-space-1));
 }
 
+.markdown-rendered li + li {
+  margin-block-start: var(--enterprise-list-spacing);
+}
+
 .markdown-rendered li::marker {
   color: var(--enterprise-text-faint);
+}
+
+.markdown-rendered input[type="checkbox"] {
+  accent-color: var(--enterprise-accent);
+}
+
+.markdown-rendered .task-list-item.is-checked,
+.cm-s-obsidian .HyperMD-task-line[data-task="x"] {
+  color: var(--enterprise-text-muted);
+  /* stylelint-disable-next-line plugin/no-unsupported-browser-features -- Obsidian's Chromium runtime supports authored task decoration. */
+  text-decoration-color: var(--enterprise-text-muted);
+}
+
+.markdown-rendered img,
+.image-embed img {
+  max-width: 100%;
+  border-radius: var(--enterprise-radius-micro);
+}
+
+.markdown-rendered sup.footnote-ref {
+  font-family: var(--enterprise-font-mono);
+  font-size: 0.72em;
 }

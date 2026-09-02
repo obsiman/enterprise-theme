@@ -1,0 +1,4 @@
+Copyright 2014 The Caveat Project Authors (https://github.com/davelab6/caveat)
+
+Font Software License: SIL Open Font License 1.1.
+The complete license is included in OFL-1.1.txt.

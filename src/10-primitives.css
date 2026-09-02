@@ -1,45 +1,79 @@
 body {
-  /* Primitive typography roles. Style Settings may override these exact variables. */
+  /* Primitive typography roles. Style Settings overrides the matching user variables. */
   --enterprise-font-display: "Bricolage Grotesque", "Instrument Sans", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   --enterprise-font-body: "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --enterprise-font-interface: "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   --enterprise-font-mono: "Spline Sans Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   --enterprise-font-hand: "Caveat", "Segoe Print", "Bradley Hand", cursive;
 
-  /* Primitive scale. */
+  /* Scale and user-facing layout primitives. */
   --enterprise-body-size: 17px;
   --enterprise-body-line-height: 1.68;
   --enterprise-reading-width: 792px;
   --enterprise-bold-weight: 640;
+  --enterprise-content-padding: 32px;
+  --enterprise-content-padding-safe: max(16px, min(var(--enterprise-content-padding), 10vw));
+  --enterprise-heading-spacing: 1.55em;
+  --enterprise-paragraph-spacing: 1.05em;
+  --enterprise-list-spacing: 0.24em;
   --enterprise-title-size: 42px;
   --enterprise-title-weight: 640;
   --enterprise-title-tracking: -0.015em;
   --enterprise-title-spacing: 22px;
   --enterprise-title-stroke-width: 190px;
-  --enterprise-title-stroke-height: 7px;
+  --enterprise-title-stroke-height: 3px;
   --enterprise-title-stroke-gap: 8px;
-  --enterprise-title-stroke-opacity: 0.92;
+  --enterprise-title-stroke-opacity: 0.86;
+  --enterprise-title-stroke-rotation: -0.45deg;
+  --enterprise-heading-tracking: -0.01em;
+
+  /* Default heading scale: 30/24/18/16/16/12. */
+  --enterprise-h1-size: 30px;
+  --enterprise-h1-weight: 640;
+  --enterprise-h1-line-height: 1.12;
+  --enterprise-h2-size: 24px;
+  --enterprise-h2-weight: 640;
+  --enterprise-h2-line-height: 1.18;
+  --enterprise-h3-size: 18px;
+  --enterprise-h3-weight: 640;
+  --enterprise-h3-line-height: 1.25;
+  --enterprise-h4-size: 16px;
+  --enterprise-h4-weight: 600;
+  --enterprise-h4-line-height: 1.3;
+  --enterprise-h5-size: 16px;
+  --enterprise-h5-weight: 600;
+  --enterprise-h5-line-height: 1.3;
+  --enterprise-h6-size: 12px;
+  --enterprise-h6-weight: 500;
+  --enterprise-h6-line-height: 1.6;
   --enterprise-h2-rule-thickness: 1px;
+  --enterprise-h2-rule-spacing: 8px;
+
+  /* Component primitives. */
   --enterprise-hand-size: 23px;
   --enterprise-hand-weight: 500;
   --enterprise-link-underline-thickness: 1.5px;
   --enterprise-highlight-opacity: 0.24;
-  --enterprise-content-padding: 32px;
-  --enterprise-heading-spacing: 1.55em;
-  --enterprise-paragraph-spacing: 1.05em;
   --enterprise-divider-width: 1px;
   --enterprise-radius-style: 10px;
+  --enterprise-radius-card: 16px;
+  --enterprise-radius-floating: 20px;
   --enterprise-callout-border-width: 1px;
+  --enterprise-callout-padding: 16px;
   --enterprise-table-row-height: 36px;
+  --enterprise-table-cell-padding: 12px;
+  --enterprise-code-padding: 16px;
+  --enterprise-code-radius: 10px;
+  --enterprise-property-row-height: 30px;
   --enterprise-nav-item-height: 30px;
   --enterprise-interface-font-size: 13px;
   --enterprise-interface-density: 1;
   --enterprise-motion-duration: 140ms;
   --enterprise-focus-ring-width: 2px;
+  --enterprise-shadow-strength: 0.18;
 
   /* Fixed physical tokens. */
   --enterprise-radius-micro: 2px;
-  --enterprise-radius-card: 16px;
-  --enterprise-radius-floating: 20px;
   --enterprise-radius-pill: 999px;
   --enterprise-space-1: 4px;
   --enterprise-space-2: 8px;
@@ -48,7 +82,8 @@ body {
   --enterprise-space-5: 24px;
   --enterprise-space-6: 32px;
 
-  /* Non-user semantic support colors live here so downstream modules contain no raw colors. */
+  /* Enterprise graphite ramp support. The base ramp follows Obsidian 1.13's
+     light-to-dark numbering, while retaining warm paper and graphite surfaces. */
   --enterprise-dark-surface-primary: #090a0c;
   --enterprise-dark-surface-secondary: #0f1113;
   --enterprise-dark-surface-tertiary: #16181a;
@@ -58,18 +93,19 @@ body {
   --enterprise-dark-text-muted: #c9c4b8;
   --enterprise-dark-text-faint: #8e897d;
   --enterprise-dark-text-heading-secondary: #ddd8cc;
+  --enterprise-dark-marker: #ff5a2d;
+  --enterprise-dark-marker-hover: #ff7248;
   --enterprise-dark-accent: #ff5a2d;
   --enterprise-dark-accent-hover: #ff7248;
-  --enterprise-dark-accent-soft: rgba(255, 90, 45, 0.11);
-  --enterprise-dark-accent-strong: rgba(255, 90, 45, 0.24);
+  --enterprise-dark-on-accent: #180e08;
   --enterprise-dark-hairline: #323438;
   --enterprise-dark-control-border: #7b7d80;
-  --enterprise-dark-hover: rgba(246, 243, 236, 0.08);
-  --enterprise-dark-shadow: rgba(0, 0, 0, 0.45);
   --enterprise-dark-success: #7d9a7f;
   --enterprise-dark-warning: #c2a35c;
   --enterprise-dark-danger: #e36350;
-
+  --enterprise-dark-shadow-base: #000;
+  --enterprise-dark-mono-0: #000;
+  --enterprise-dark-mono-100: #fff;
   --enterprise-light-surface-primary: #f6f3ec;
   --enterprise-light-surface-secondary: #fffdf7;
   --enterprise-light-surface-tertiary: #ede9df;
@@ -79,35 +115,66 @@ body {
   --enterprise-light-text-muted: #4d4a42;
   --enterprise-light-text-faint: #5a574e;
   --enterprise-light-text-heading-secondary: #2e2c26;
-  --enterprise-light-accent: #d43f16;
-  --enterprise-light-accent-hover: #a73514;
-  --enterprise-light-accent-soft: rgba(212, 63, 22, 0.08);
-  --enterprise-light-accent-strong: rgba(212, 63, 22, 0.22);
+  --enterprise-light-marker: #d43f16;
+  --enterprise-light-marker-hover: #b93613;
+  --enterprise-light-accent: #b93613;
+  --enterprise-light-accent-hover: #8f2e10;
+  --enterprise-light-on-accent: #fff6f0;
   --enterprise-light-hairline: #d8d1c4;
   --enterprise-light-control-border: #777166;
-  --enterprise-light-hover: rgba(23, 26, 32, 0.07);
-  --enterprise-light-shadow: rgba(23, 26, 32, 0.18);
-  --enterprise-light-success: #5e7a60;
+  --enterprise-light-success: #5b765d;
   --enterprise-light-warning: #866c32;
   --enterprise-light-danger: #b33a2b;
+  --enterprise-light-shadow-base: #171a20;
+  --enterprise-light-mono-0: #fff;
+  --enterprise-light-mono-100: #000;
 
-  --enterprise-selection: rgba(255, 90, 45, 0.24);
-  --enterprise-knob: #f6f3ec;
+  /* Secondary/category palette. */
+  --enterprise-light-color-red: #b33a2b;
+  --enterprise-light-color-orange: #b65a24;
+  --enterprise-light-color-yellow: #866c32;
+  --enterprise-light-color-green: #5b765d;
+  --enterprise-light-color-cyan: #397b7a;
+  --enterprise-light-color-blue: #3b6790;
+  --enterprise-light-color-purple: #705a9a;
+  --enterprise-light-color-pink: #9b4c6e;
+  --enterprise-dark-color-red: #e36350;
+  --enterprise-dark-color-orange: #e58d51;
+  --enterprise-dark-color-yellow: #c2a35c;
+  --enterprise-dark-color-green: #7d9a7f;
+  --enterprise-dark-color-cyan: #77c5c3;
+  --enterprise-dark-color-blue: #86b8e8;
+  --enterprise-dark-color-purple: #b5a0e6;
+  --enterprise-dark-color-pink: #e3a0bd;
 }
 
 .theme-dark {
   --enterprise-user-surface-primary: var(--enterprise-dark-surface-primary);
   --enterprise-user-surface-secondary: var(--enterprise-dark-surface-secondary);
   --enterprise-user-surface-tertiary: var(--enterprise-dark-surface-tertiary);
+  --enterprise-user-surface-deep: var(--enterprise-dark-surface-deep);
+  --enterprise-user-surface-overlay: var(--enterprise-dark-surface-overlay);
   --enterprise-user-text-normal: var(--enterprise-dark-text-normal);
   --enterprise-user-text-muted: var(--enterprise-dark-text-muted);
   --enterprise-user-text-faint: var(--enterprise-dark-text-faint);
+  --enterprise-user-text-heading-secondary: var(--enterprise-dark-text-heading-secondary);
+  --enterprise-user-marker: var(--enterprise-dark-marker);
+  --enterprise-user-marker-hover: var(--enterprise-dark-marker-hover);
   --enterprise-user-accent: var(--enterprise-dark-accent);
   --enterprise-user-accent-hover: var(--enterprise-dark-accent-hover);
+  --enterprise-user-on-accent: var(--enterprise-dark-on-accent);
+  --enterprise-user-selection: var(--enterprise-dark-marker);
   --enterprise-user-success: var(--enterprise-dark-success);
   --enterprise-user-warning: var(--enterprise-dark-warning);
   --enterprise-user-danger: var(--enterprise-dark-danger);
-  --enterprise-title-decoration-color: var(--enterprise-dark-accent);
+  --enterprise-user-color-red: var(--enterprise-dark-color-red);
+  --enterprise-user-color-orange: var(--enterprise-dark-color-orange);
+  --enterprise-user-color-yellow: var(--enterprise-dark-color-yellow);
+  --enterprise-user-color-green: var(--enterprise-dark-color-green);
+  --enterprise-user-color-cyan: var(--enterprise-dark-color-cyan);
+  --enterprise-user-color-blue: var(--enterprise-dark-color-blue);
+  --enterprise-user-color-purple: var(--enterprise-dark-color-purple);
+  --enterprise-user-color-pink: var(--enterprise-dark-color-pink);
   --enterprise-h2-rule-color: var(--enterprise-dark-hairline);
   --enterprise-hand-color: var(--enterprise-dark-accent);
   --enterprise-link-color: var(--enterprise-dark-accent);
@@ -120,19 +187,73 @@ body {
   --enterprise-user-surface-primary: var(--enterprise-light-surface-primary);
   --enterprise-user-surface-secondary: var(--enterprise-light-surface-secondary);
   --enterprise-user-surface-tertiary: var(--enterprise-light-surface-tertiary);
+  --enterprise-user-surface-deep: var(--enterprise-light-surface-deep);
+  --enterprise-user-surface-overlay: var(--enterprise-light-surface-overlay);
   --enterprise-user-text-normal: var(--enterprise-light-text-normal);
   --enterprise-user-text-muted: var(--enterprise-light-text-muted);
   --enterprise-user-text-faint: var(--enterprise-light-text-faint);
+  --enterprise-user-text-heading-secondary: var(--enterprise-light-text-heading-secondary);
+  --enterprise-user-marker: var(--enterprise-light-marker);
+  --enterprise-user-marker-hover: var(--enterprise-light-marker-hover);
   --enterprise-user-accent: var(--enterprise-light-accent);
   --enterprise-user-accent-hover: var(--enterprise-light-accent-hover);
+  --enterprise-user-on-accent: var(--enterprise-light-on-accent);
+  --enterprise-user-selection: var(--enterprise-light-marker);
   --enterprise-user-success: var(--enterprise-light-success);
   --enterprise-user-warning: var(--enterprise-light-warning);
   --enterprise-user-danger: var(--enterprise-light-danger);
-  --enterprise-title-decoration-color: var(--enterprise-light-accent);
+  --enterprise-user-color-red: var(--enterprise-light-color-red);
+  --enterprise-user-color-orange: var(--enterprise-light-color-orange);
+  --enterprise-user-color-yellow: var(--enterprise-light-color-yellow);
+  --enterprise-user-color-green: var(--enterprise-light-color-green);
+  --enterprise-user-color-cyan: var(--enterprise-light-color-cyan);
+  --enterprise-user-color-blue: var(--enterprise-light-color-blue);
+  --enterprise-user-color-purple: var(--enterprise-light-color-purple);
+  --enterprise-user-color-pink: var(--enterprise-light-color-pink);
   --enterprise-h2-rule-color: var(--enterprise-light-hairline);
   --enterprise-hand-color: var(--enterprise-light-accent);
   --enterprise-link-color: var(--enterprise-light-accent);
   --enterprise-link-hover-color: var(--enterprise-light-accent-hover);
   --enterprise-border-color: var(--enterprise-light-hairline);
   --enterprise-control-border-color: var(--enterprise-light-control-border);
+}
+
+/* The preset changes semantic inputs; the Style Settings user variables remain
+   the final customization layer, so manual values continue to win. */
+body.enterprise-preset-reference.theme-dark {
+  --enterprise-dark-marker: #ff5a2d;
+  --enterprise-dark-accent: #ff5a2d;
+}
+
+body.enterprise-preset-reference.theme-light {
+  --enterprise-light-marker: #d43f16;
+  --enterprise-light-accent: #b93613;
+}
+
+body.enterprise-preset-neutral.theme-dark {
+  --enterprise-dark-marker: #c9c4b8;
+  --enterprise-dark-marker-hover: #f6f3ec;
+  --enterprise-dark-accent: #c9c4b8;
+  --enterprise-dark-accent-hover: #f6f3ec;
+}
+
+body.enterprise-preset-neutral.theme-light {
+  --enterprise-light-marker: #777166;
+  --enterprise-light-marker-hover: #4d4a42;
+  --enterprise-light-accent: #4d4a42;
+  --enterprise-light-accent-hover: #171a20;
+}
+
+body.enterprise-preset-high-contrast.theme-dark {
+  --enterprise-dark-surface-secondary: #090a0c;
+  --enterprise-dark-text-muted: #f6f3ec;
+  --enterprise-dark-text-faint: #c9c4b8;
+  --enterprise-dark-hairline: #7b7d80;
+}
+
+body.enterprise-preset-high-contrast.theme-light {
+  --enterprise-light-surface-secondary: #f6f3ec;
+  --enterprise-light-text-muted: #171a20;
+  --enterprise-light-text-faint: #4d4a42;
+  --enterprise-light-hairline: #777166;
 }

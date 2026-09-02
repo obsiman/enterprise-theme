@@ -5,3 +5,5 @@ The visual research for Enterprise included the public **ICOR for Life - INKLINE
 Enterprise's implementation is independently authored. It does not include the reference theme's stylesheet, embedded font payloads, SVG path data, product branding, vault-scaffold selectors, room-specific behavior, banners, or plugin-specific chrome.
 
 The reference project uses a restrictive source-available / Creative Commons licensing model for its own theme code. Do not copy source code from that project into Enterprise. This repository should continue to treat the reference as visual research, not as a source dependency.
+
+Enterprise now bundles official latin WOFF2 distributions of Bricolage Grotesque, Instrument Sans, Spline Sans Mono, and Caveat. Those font files remain under their upstream SIL Open Font License 1.1 terms; see `THIRD-PARTY-NOTICES.md` and `licenses/fonts/` for the original copyright notices and complete license.

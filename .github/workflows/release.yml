@@ -1,0 +1,31 @@
+name: Draft theme release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify release artifacts
+        shell: bash
+        run: |
+          test -f manifest.json
+          test -f theme.css
+          test "$(find . -maxdepth 1 -type f \( -name 'manifest.json' -o -name 'theme.css' \) | wc -l)" -eq 2
+
+      - name: Create draft release
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          files: |
+            manifest.json
+            theme.css

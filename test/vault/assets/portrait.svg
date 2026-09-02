@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="620" viewBox="0 0 420 620" role="img" aria-labelledby="title">
+  <title id="title">Warm paper abstract portrait</title>
+  <rect width="420" height="620" fill="#ede9df"/>
+  <circle cx="210" cy="196" r="108" fill="#b93613" opacity=".9"/>
+  <path d="M70 540c16-140 78-202 140-202s124 62 140 202" fill="#171a20"/>
+  <path d="M88 486c68-54 176-54 244 0" fill="none" stroke="#ff5a2d" stroke-width="10" stroke-linecap="round"/>
+</svg>

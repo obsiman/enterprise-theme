@@ -10,7 +10,7 @@ settings:
     collapsed: false
   - id: enterprise-preset
     title: Visual preset
-    description: Reference keeps the graphite, warm-paper, restrained-orange visual language. Neutral softens the marker. High contrast strengthens edges and text separation.
+    description: Reference is the default graphite, warm-paper, restrained-orange system. Neutral quiets the accent. High contrast strengthens text and boundaries.
     type: class-select
     allowEmpty: false
     default: enterprise-preset-reference
@@ -45,6 +45,18 @@ settings:
     format: hex
     default-light: '#ede9df'
     default-dark: '#16181a'
+  - id: enterprise-user-surface-deep
+    title: Deep surface
+    type: variable-themed-color
+    format: hex
+    default-light: '#f1ede2'
+    default-dark: '#07080b'
+  - id: enterprise-user-surface-overlay
+    title: Overlay surface
+    type: variable-themed-color
+    format: hex
+    default-light: '#fffdf7'
+    default-dark: '#1b1c1f'
   - id: enterprise-user-text-normal
     title: Primary text
     type: variable-themed-color
@@ -63,23 +75,53 @@ settings:
     format: hex
     default-light: '#5a574e'
     default-dark: '#8e897d'
-  - id: enterprise-user-accent
-    title: Marker accent
+  - id: enterprise-user-text-heading-secondary
+    title: Secondary heading text
+    type: variable-themed-color
+    format: hex
+    default-light: '#2e2c26'
+    default-dark: '#ddd8cc'
+  - id: enterprise-user-marker
+    title: Decorative marker
     type: variable-themed-color
     format: hex
     default-light: '#d43f16'
     default-dark: '#ff5a2d'
-  - id: enterprise-user-accent-hover
-    title: Marker accent hover
+  - id: enterprise-user-marker-hover
+    title: Marker hover
     type: variable-themed-color
     format: hex
-    default-light: '#a73514'
+    default-light: '#b93613'
     default-dark: '#ff7248'
+  - id: enterprise-user-accent
+    title: Interactive accent
+    type: variable-themed-color
+    format: hex
+    default-light: '#b93613'
+    default-dark: '#ff5a2d'
+  - id: enterprise-user-accent-hover
+    title: Interactive accent hover
+    type: variable-themed-color
+    format: hex
+    default-light: '#8f2e10'
+    default-dark: '#ff7248'
+  - id: enterprise-user-on-accent
+    title: Text on accent
+    type: variable-themed-color
+    format: hex
+    default-light: '#fff6f0'
+    default-dark: '#180e08'
+  - id: enterprise-user-selection
+    title: Highlight and selection color
+    type: variable-themed-color
+    format: hex
+    default-light: '#d43f16'
+    default-dark: '#ff5a2d'
   - id: enterprise-user-success
     title: Success
     type: variable-themed-color
     format: hex
-    default-light: '#5e7a60'
+    default-light: '#5b765d'
     default-dark: '#7d9a7f'
   - id: enterprise-user-warning
     title: Warning
@@ -93,12 +135,61 @@ settings:
     format: hex
     default-light: '#b33a2b'
     default-dark: '#e36350'
-  - id: enterprise-user-selection
-    title: Selection overlay
-    type: variable-color
-    format: rgb
-    opacity: true
-    default: 'rgba(255, 90, 45, 0.24)'
+  - id: enterprise-user-color-red
+    title: Category red
+    type: variable-themed-color
+    format: hex
+    default-light: '#b33a2b'
+    default-dark: '#e36350'
+  - id: enterprise-user-color-orange
+    title: Category orange
+    type: variable-themed-color
+    format: hex
+    default-light: '#b65a24'
+    default-dark: '#e58d51'
+  - id: enterprise-user-color-yellow
+    title: Category yellow
+    type: variable-themed-color
+    format: hex
+    default-light: '#866c32'
+    default-dark: '#c2a35c'
+  - id: enterprise-user-color-green
+    title: Category green
+    type: variable-themed-color
+    format: hex
+    default-light: '#5b765d'
+    default-dark: '#7d9a7f'
+  - id: enterprise-user-color-cyan
+    title: Category cyan
+    type: variable-themed-color
+    format: hex
+    default-light: '#397b7a'
+    default-dark: '#77c5c3'
+  - id: enterprise-user-color-blue
+    title: Category blue
+    type: variable-themed-color
+    format: hex
+    default-light: '#3b6790'
+    default-dark: '#86b8e8'
+  - id: enterprise-user-color-purple
+    title: Category purple
+    type: variable-themed-color
+    format: hex
+    default-light: '#705a9a'
+    default-dark: '#b5a0e6'
+  - id: enterprise-user-color-pink
+    title: Category pink
+    type: variable-themed-color
+    format: hex
+    default-light: '#9b4c6e'
+    default-dark: '#e3a0bd'
+  - id: enterprise-highlight-opacity
+    title: Highlight opacity
+    type: variable-number-slider
+    default: 0.24
+    min: 0.08
+    max: 0.6
+    step: 0.02
 
   - id: enterprise-typography-heading
     title: Typography
@@ -107,11 +198,15 @@ settings:
     collapsed: true
   - id: enterprise-font-display
     title: Display font
-    description: Used for page titles and H1-H5. Install the font locally if you use a custom family.
+    description: Used for page titles and headings. The bundled default can be replaced with any installed family.
     type: variable-text
     default: '"Bricolage Grotesque", "Instrument Sans", -apple-system, BlinkMacSystemFont, system-ui, sans-serif'
   - id: enterprise-font-body
     title: Body font
+    type: variable-text
+    default: '"Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif'
+  - id: enterprise-font-interface
+    title: Interface font
     type: variable-text
     default: '"Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif'
   - id: enterprise-font-mono
@@ -138,7 +233,7 @@ settings:
     max: 2
     step: 0.02
   - id: enterprise-reading-width
-    title: Reading width
+    title: Readable line width
     type: variable-number-slider
     default: 792
     min: 520
@@ -154,7 +249,7 @@ settings:
     step: 10
 
   - id: enterprise-title-heading
-    title: Title and headings
+    title: Page title and headings
     type: heading
     level: 1
     collapsed: true
@@ -185,12 +280,12 @@ settings:
     step: 5
     format: px
   - id: enterprise-title-stroke-height
-    title: Page-title stroke height
+    title: Page-title stroke thickness
     type: variable-number-slider
-    default: 7
-    min: 1
-    max: 18
-    step: 1
+    default: 3
+    min: 2
+    max: 8
+    step: 0.5
     format: px
   - id: enterprise-title-stroke-gap
     title: Page-title stroke gap
@@ -203,10 +298,18 @@ settings:
   - id: enterprise-title-stroke-opacity
     title: Page-title stroke opacity
     type: variable-number-slider
-    default: 0.92
+    default: 0.86
     min: 0.1
     max: 1
     step: 0.02
+  - id: enterprise-title-stroke-rotation
+    title: Page-title stroke angle
+    type: variable-number-slider
+    default: -0.45
+    min: -3
+    max: 3
+    step: 0.05
+    format: deg
   - id: enterprise-title-size
     title: Page-title size
     type: variable-number-slider
@@ -238,6 +341,146 @@ settings:
     max: 64
     step: 2
     format: px
+  - id: enterprise-heading-tracking
+    title: Heading tracking
+    type: variable-number-slider
+    default: -0.01
+    min: -0.06
+    max: 0.08
+    step: 0.005
+    format: em
+  - id: enterprise-h1-size
+    title: H1 size
+    type: variable-number-slider
+    default: 30
+    min: 20
+    max: 48
+    step: 1
+    format: px
+  - id: enterprise-h1-weight
+    title: H1 weight
+    type: variable-number-slider
+    default: 640
+    min: 400
+    max: 800
+    step: 10
+  - id: enterprise-h1-line-height
+    title: H1 line height
+    type: variable-number-slider
+    default: 1.12
+    min: 1
+    max: 1.6
+    step: 0.01
+  - id: enterprise-h2-size
+    title: H2 size
+    type: variable-number-slider
+    default: 24
+    min: 18
+    max: 36
+    step: 1
+    format: px
+  - id: enterprise-h2-weight
+    title: H2 weight
+    type: variable-number-slider
+    default: 640
+    min: 400
+    max: 800
+    step: 10
+  - id: enterprise-h2-line-height
+    title: H2 line height
+    type: variable-number-slider
+    default: 1.18
+    min: 1
+    max: 1.6
+    step: 0.01
+  - id: enterprise-h3-size
+    title: H3 size
+    type: variable-number-slider
+    default: 18
+    min: 16
+    max: 30
+    step: 1
+    format: px
+  - id: enterprise-h3-weight
+    title: H3 weight
+    type: variable-number-slider
+    default: 640
+    min: 400
+    max: 800
+    step: 10
+  - id: enterprise-h3-line-height
+    title: H3 line height
+    type: variable-number-slider
+    default: 1.25
+    min: 1
+    max: 1.7
+    step: 0.01
+  - id: enterprise-h4-size
+    title: H4 size
+    type: variable-number-slider
+    default: 16
+    min: 14
+    max: 26
+    step: 1
+    format: px
+  - id: enterprise-h4-weight
+    title: H4 weight
+    type: variable-number-slider
+    default: 600
+    min: 400
+    max: 800
+    step: 10
+  - id: enterprise-h4-line-height
+    title: H4 line height
+    type: variable-number-slider
+    default: 1.3
+    min: 1
+    max: 1.8
+    step: 0.01
+  - id: enterprise-h5-size
+    title: H5 size
+    type: variable-number-slider
+    default: 16
+    min: 14
+    max: 24
+    step: 1
+    format: px
+  - id: enterprise-h5-weight
+    title: H5 weight
+    type: variable-number-slider
+    default: 600
+    min: 400
+    max: 800
+    step: 10
+  - id: enterprise-h5-line-height
+    title: H5 line height
+    type: variable-number-slider
+    default: 1.3
+    min: 1
+    max: 1.8
+    step: 0.01
+  - id: enterprise-h6-size
+    title: H6 size
+    type: variable-number-slider
+    default: 12
+    min: 10
+    max: 18
+    step: 1
+    format: px
+  - id: enterprise-h6-weight
+    title: H6 weight
+    type: variable-number-slider
+    default: 500
+    min: 400
+    max: 700
+    step: 10
+  - id: enterprise-h6-line-height
+    title: H6 line height
+    type: variable-number-slider
+    default: 1.6
+    min: 1.2
+    max: 2
+    step: 0.05
   - id: enterprise-disable-h2-rule
     title: Disable H2 hairline
     type: class-toggle
@@ -256,6 +499,14 @@ settings:
     max: 4
     step: 1
     format: px
+  - id: enterprise-h2-rule-spacing
+    title: H2 hairline spacing
+    type: variable-number-slider
+    default: 8
+    min: 0
+    max: 24
+    step: 1
+    format: px
 
   - id: enterprise-hand-heading
     title: Handwritten layer
@@ -264,7 +515,7 @@ settings:
     collapsed: true
   - id: enterprise-disable-handwriting
     title: Disable automatic handwriting
-    description: Returns blockquotes, selected callout bodies, comments, tags, status text, and utility handwriting to the body face.
+    description: Returns blockquotes, callout annotations, comments, tags, tooltips, status text, and the full-note utility to their regular roles.
     type: class-toggle
     default: false
   - id: enterprise-hand-size
@@ -314,13 +565,6 @@ settings:
     max: 4
     step: 0.5
     format: px
-  - id: enterprise-highlight-opacity
-    title: Highlight opacity
-    type: variable-number-slider
-    default: 0.24
-    min: 0.08
-    max: 0.6
-    step: 0.02
 
   - id: enterprise-layout-heading
     title: Layout
@@ -328,7 +572,8 @@ settings:
     level: 1
     collapsed: true
   - id: enterprise-content-padding
-    title: Note horizontal padding
+    title: Note horizontal margins
+    description: Applies to Reading view, Live Preview, and Source mode through Obsidian's file margin variables.
     type: variable-number-slider
     default: 32
     min: 12
@@ -351,9 +596,17 @@ settings:
     max: 2
     step: 0.05
     format: em
+  - id: enterprise-list-spacing
+    title: List spacing
+    type: variable-number-slider
+    default: 0.24
+    min: 0
+    max: 0.8
+    step: 0.02
+    format: em
 
   - id: enterprise-borders-heading
-    title: Borders
+    title: Borders and radii
     type: heading
     level: 1
     collapsed: true
@@ -377,14 +630,8 @@ settings:
     max: 4
     step: 1
     format: px
-
-  - id: enterprise-components-heading
-    title: Components
-    type: heading
-    level: 1
-    collapsed: true
   - id: enterprise-radius-style
-    title: Corner profile
+    title: Control radius
     type: variable-select
     default: 10px
     options:
@@ -396,6 +643,38 @@ settings:
         value: 16px
       - label: Rounded
         value: 22px
+  - id: enterprise-radius-card
+    title: Card radius
+    type: variable-select
+    default: 16px
+    options:
+      - label: Square
+        value: 2px
+      - label: Subtle
+        value: 10px
+      - label: Soft
+        value: 16px
+      - label: Rounded
+        value: 22px
+  - id: enterprise-radius-floating
+    title: Floating radius
+    type: variable-select
+    default: 20px
+    options:
+      - label: Square
+        value: 4px
+      - label: Subtle
+        value: 12px
+      - label: Soft
+        value: 20px
+      - label: Rounded
+        value: 28px
+
+  - id: enterprise-components-heading
+    title: Components
+    type: heading
+    level: 1
+    collapsed: true
   - id: enterprise-callout-border-width
     title: Callout border width
     type: variable-number-slider
@@ -404,12 +683,55 @@ settings:
     max: 4
     step: 1
     format: px
+  - id: enterprise-callout-padding
+    title: Callout padding
+    type: variable-number-slider
+    default: 16
+    min: 8
+    max: 32
+    step: 2
+    format: px
   - id: enterprise-table-row-height
-    title: Table row minimum height
+    title: Table row height
     type: variable-number-slider
     default: 36
     min: 28
     max: 64
+    step: 2
+    format: px
+  - id: enterprise-table-cell-padding
+    title: Table cell padding
+    type: variable-number-slider
+    default: 12
+    min: 4
+    max: 24
+    step: 2
+    format: px
+  - id: enterprise-code-padding
+    title: Code block padding
+    type: variable-number-slider
+    default: 16
+    min: 4
+    max: 32
+    step: 2
+    format: px
+  - id: enterprise-code-radius
+    title: Code block radius
+    type: variable-select
+    default: 10px
+    options:
+      - label: Square
+        value: 2px
+      - label: Subtle
+        value: 10px
+      - label: Soft
+        value: 16px
+  - id: enterprise-property-row-height
+    title: Property row height
+    type: variable-number-slider
+    default: 30
+    min: 24
+    max: 48
     step: 2
     format: px
 
@@ -420,15 +742,16 @@ settings:
     collapsed: true
   - id: enterprise-compact-interface
     title: Compact interface
+    description: Changes application chrome density only; note margins remain controlled by Layout.
     type: class-toggle
     default: false
   - id: enterprise-hide-ribbon
     title: Hide left ribbon
-    description: Optional. Off by default so the theme never removes navigation on installation.
+    description: Optional. Off by default so installation never removes navigation.
     type: class-toggle
     default: false
   - id: enterprise-nav-item-height
-    title: Navigation item height
+    title: Navigation row height
     type: variable-number-slider
     default: 30
     min: 24
@@ -443,9 +766,20 @@ settings:
     max: 17
     step: 1
     format: px
+  - id: enterprise-interface-density
+    title: Interface density
+    type: variable-select
+    default: 1
+    options:
+      - label: Dense
+        value: 0.88
+      - label: Standard
+        value: 1
+      - label: Spacious
+        value: 1.12
 
   - id: enterprise-advanced-heading
-    title: Advanced tokens
+    title: Advanced
     type: heading
     level: 1
     collapsed: true
@@ -465,16 +799,12 @@ settings:
     max: 5
     step: 1
     format: px
-  - id: enterprise-interface-density
-    title: Interface density
-    type: variable-select
-    default: 1
-    options:
-      - label: Dense
-        value: 0.88
-      - label: Standard
-        value: 1
-      - label: Spacious
-        value: 1.12
+  - id: enterprise-shadow-strength
+    title: Shadow strength
+    type: variable-number-slider
+    default: 0.18
+    min: 0
+    max: 0.5
+    step: 0.02
 
 */

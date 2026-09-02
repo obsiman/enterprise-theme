@@ -1,0 +1,11 @@
+{
+  "nodes": [
+    {"id":"surface","type":"text","text":"Enterprise surfaces","x":0,"y":0,"width":260,"height":120},
+    {"id":"tokens","type":"text","text":"Tokens and content","x":360,"y":0,"width":260,"height":120},
+    {"id":"fixtures","type":"file","file":"01-typography.md","x":180,"y":220,"width":280,"height":160}
+  ],
+  "edges": [
+    {"id":"surface-tokens","fromNode":"surface","toNode":"tokens","fromSide":"right","toSide":"left"},
+    {"id":"tokens-fixtures","fromNode":"tokens","toNode":"fixtures","fromSide":"bottom","toSide":"top"}
+  ]
+}
